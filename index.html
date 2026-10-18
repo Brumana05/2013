@@ -31,7 +31,7 @@ main h4{color:#8a6a00;border-bottom:2px solid #c99a1c;padding-bottom:3px}.auth h
 <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
 <script>
-const V='1.20',K='osm_v1',$=q=>document.querySelector(q),p2=n=>String(n).padStart(2,'0'),uid=()=>Math.random().toString(36).slice(2,9);
+const V='1.21',K='osm_v1',$=q=>document.querySelector(q),p2=n=>String(n).padStart(2,'0'),uid=()=>Math.random().toString(36).slice(2,9);
 const e=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const def=()=>({team:{name:'Oratorio San Michele',logo:''},players:[],events:[],users:[],votes:{},mvpv:{},notices:[],rd:{},rdAll:{},rdOk:false});
 let S=def();
@@ -104,7 +104,7 @@ function vForm(){if(!fe)return`<h4>Seleziona la partita</h4>`+(S.events.filter(x
 const ev=S.events.find(x=>x.id===fe);ev.lineup??={mod:'4-4-2',slots:[],bench:[]};ev.stats??={};const rows=rowsOf(ev.lineup.mod);let i=0;
 const ps=[...S.players].sort((a,b)=>a.name.localeCompare(b.name));
 const sl=rows.map(r=>r.map(lb=>{const k=i++;return`<label>${lb}</label><select onchange="setSlot(${k},this.value)"><option value="">— scegli —</option>${ps.map(p=>`<option value=${p.id} ${ev.lineup.slots[k]===p.id?'selected':''}>${e(p.name)}${p.role?' ('+p.role+')':''}</option>`).join('')}</select>`}).join('')).join('');
-const st=ids(ev).map(id=>{const p=pl(id);if(!p)return'';const s=ev.stats[id]??={},gk=ev.lineup.slots[0]===id,vs=Object.values(S.votes[ev.id]||{}).map(u=>parseFloat(u[id])).filter(n=>!isNaN(n)),avg=vs.length?(vs.reduce((a,b)=>a+b,0)/vs.length).toFixed(2):'–';
+const st=ids(ev).map(id=>{const p=pl(id);if(!p)return'';const s=ev.stats[id]??={},gk=isGK(ev,id),vs=Object.values(S.votes[ev.id]||{}).map(u=>parseFloat(u[id])).filter(n=>!isNaN(n)),avg=vs.length?(vs.reduce((a,b)=>a+b,0)/vs.length).toFixed(2):'–';
 const num=(k,l)=>`<div><label>${l}</label><input type=number min=0 value="${s[k]||0}" onchange="setS('${id}','${k}',+this.value)"></div>`,chk=(k,l)=>`<label><input type=checkbox style="width:auto" ${s[k]?'checked':''} onchange="setS('${id}','${k}',this.checked)"> ${l}</label>`;
 return`<div class=card><b>${e(p.name)}${gk?' 🧤':''}</b> <span style="float:right" id="fv${id}">Fanta: ${fmt(fanta(ev,id))}</span><br><small>Media utenti: ${avg} (${vs.length} voti)</small>
 <div class=sm><div><label>Voto base${s.auto?' (media utenti)':''}</label><select onchange="setS('${id}','vote',this.value)">${opts(vl(s.vote),s.vote)}</select></div>${num('g','Gol')}${num('a','Assist')}${num('og','Autogol')}${num('pm','Rig. sbagliati')}<div><label>Gialli</label><select onchange="setS('${id}','y',+this.value)">${opts([0,1,2],s.y||0)}</select></div>${gk?num('pen','Rigori parati')+num('conc','Gol subiti'):''}</div>
@@ -112,20 +112,22 @@ return`<div class=card><b>${e(p.name)}${gk?' 🧤':''}</b> <span style="float:ri
 const bench=ps.filter(p=>!ev.lineup.slots.includes(p.id)).map(p=>`<label style="display:block"><input type=checkbox style="width:auto" ${ev.lineup.bench.includes(p.id)?'checked':''} onchange="setBench('${p.id}',this.checked)"> ${e(p.name)}</label>`).join('');
 return`<button class="b g" onclick="fe=null;R()">‹ Partite</button><h4>${TYPES[ev.type][0]} vs ${e(ev.opp)} ${HA(ev)}</h4><div class=card>${(()=>{const src=S.events.filter(x=>x.id!==ev.id&&x.lineup?.slots.some(Boolean)).sort((a,b)=>b.date.localeCompare(a.date));return src.length?`<label>Copia formazione da una partita precedente</label><select onchange="cpL(this.value)"><option value="">— scegli partita —</option>${src.map(x=>`<option value=${x.id}>${x.date.split('-').reverse().join('/')} · ${TYPES[x.type][0]} vs ${e(x.opp)} (${x.lineup.mod})</option>`).join('')}</select>`:''})()}<label>Modulo</label><select onchange="setMod(this.value)">${MODS.map(m=>`<option ${m===ev.lineup.mod?'selected':''}>${m}</option>`).join('')}</select>${sl}<details ${bo?'open':''} ontoggle="bo=this.open"><summary>Panchina / subentrati (selezione multipla)</summary>${bench||'Nessuno'}</details></div>${ev.lineup.slots.some(Boolean)?'<h4>Anteprima formazione</h4>'+pitchHTML(ev,true):''}${ids(ev).length?'<h4>Voti e statistiche</h4>':''}${st}`}
 const cur=()=>S.events.find(x=>x.id===fe);
+/* Portiere = titolare in porta oppure atleta con ruolo Portiere in Anagrafe (secondo portiere compreso) */
+const isGK=(ev,id)=>ev.lineup.slots[0]===id||(pl(id)||{}).role==='P';
 function cpL(id){if(!id)return;const o=S.events.find(x=>x.id===id).lineup,L=cur().lineup;if(L.slots.some(Boolean)&&!confirm('Sostituire la formazione attuale con quella copiata?'))return R();L.mod=o.mod;L.slots=[...o.slots];L.bench=[...(o.bench||[])];save();R()}
 function setMod(m){const L=cur().lineup;L.mod=m;L.slots=L.slots.slice(0,11);save();R()}
 function setSlot(k,v){const L=cur().lineup;L.slots=Array.from({length:11},(_,i)=>L.slots[i]||'');L.slots[k]=v;if(v)L.slots=L.slots.map((x,i)=>i!==k&&x===v?'':x);L.bench=L.bench.filter(b=>b!==v);save();R()}
 function setBench(id,on){const L=cur().lineup;L.bench=L.bench.filter(b=>b!==id);if(on)L.bench.push(id);save();R()}
 function setS(id,k,v){const ev=cur();ev.stats[id][k]=v;if(k==='vote')ev.stats[id].auto=false;save();const el=$('#fv'+id);if(el)el.textContent='Fanta: '+fmt(fanta(ev,id));if(k!=='vote')R()}
 function fanta(ev,id){const s=ev.stats?.[id];if(!s||s.vote===undefined||s.vote===''||s.vote==='SV')return null;let v=parseFloat(s.vote)+3*(s.g||0)+(s.a||0)-.5*(s.y||0)-(s.r?1:0)-2*(s.og||0)-3*(s.pm||0);
-if(ev.lineup.slots[0]===id){v-=(s.conc||0);v+=3*(s.pen||0);if(!s.conc)v+=1}return v}
+if(isGK(ev,id)){v-=(s.conc||0);v+=3*(s.pen||0);if(!s.conc&&(ev.lineup.slots.includes(id)||s.in))v+=1}return v}
 /* FANTA */
 const RB='<svg class=rb width=13 height=13 viewBox="0 0 24 24"><circle cx=12 cy=12 r=11 fill="#e53935" stroke="#fff" stroke-width="1.5"/><path d="M12 7l4 3-1.5 5h-5L8 10z" fill="#7f1d1d"/></svg>';
 const GS='<span class=gs>⚽<svg width=8 height=9 viewBox="0 0 8 9"><path d="M3 0h2v5h2.5L4 9 .5 5H3z" fill="#e53935"/></svg></span>';
 const rep=(n,i)=>n>3?i.repeat(3)+'+':i.repeat(n);
 const icons=(s,gk)=>(s.g?rep(s.g,'⚽'):'')+(s.og?rep(s.og,RB):'')+(s.a?rep(s.a,'🦶'):'')+(s.pen?rep(s.pen,'🧤'):'')+(s.pm?rep(s.pm,'🥅❌'):'')+(gk&&s.conc?rep(s.conc,GS):'')+(s.y?'🟨'.repeat(Math.min(s.y,2)):'')+(s.r?'🟥':'');
 function cell(ev,id,lb,bn,dg,k){const p=pl(id),at=dg?(bn?`class="pl dg" data-b="${id||''}"`:`class="pl dg" data-k="${k}"`):'class=pl';
-if(!p)return`<div ${at}><div class=c>👤</div><em>${lb}</em></div>`;const s=ev.stats?.[id]||{},pd=!bn||s.in,gk=ev.lineup.slots[0]===id;
+if(!p)return`<div ${at}><div class=c>👤</div><em>${lb}</em></div>`;const s=ev.stats?.[id]||{},pd=!bn||s.in,gk=isGK(ev,id);
 const bd=s.out?'<b class=bd style="background:#c0392b">▼</b>':s.in?'<b class=bd style="background:#2e9e4f">▲</b>':'';
 return`<div ${at}><div class=c style="${p.photo?`background-image:url(${p.photo})`:''}">${p.photo?'':'👤'}${bd}</div><em>${e(p.last||p.name.split(' ')[0])} <span class=ic>${icons(s,gk)}</span></em>${pd?`<span class=v>${s.vote||'–'}</span> <span class=v style="background:#c99a1c;color:#fff">${fmt(fanta(ev,id))}</span>`:'<small class=ng>Non ha giocato</small>'}</div>`}
 function pitchHTML(ev,dg){const rows=rowsOf(ev.lineup.mod);let o=0;const offs=rows.map(r=>{const q=o;o+=r.length;return q});
@@ -137,7 +139,7 @@ function vFanta(){const evs=S.events.filter(x=>x.lineup?.slots.some(Boolean)).so
 const ev=evs.find(x=>x.id===fx)||evs[0];
 return`<select onchange="fx=this.value;R()">${evs.map(x=>`<option value=${x.id} ${x.id===ev.id?'selected':''}>${x.date.split('-').reverse().join('/')} · ${TYPES[x.type][0]} vs ${e(x.opp)}</option>`).join('')}</select><p style="font-size:12px;color:#667">Modulo ${ev.lineup.mod} · Bianco = voto base · Oro = Fantavoto</p>${pitchHTML(ev)}`}
 /* STATISTICHE */
-function vStat(){const A=S.players.map(p=>{const r={p,m:S.events.filter(ev=>{const q=mvpOf(ev);return q&&q.ids.includes(p.id)}).length,app:0,g:0,a:0,y:0,r:0,c:0,vb:[],vf:[]};S.events.forEach(ev=>{if(!played(ev,p.id))return;r.app++;const s=ev.stats?.[p.id]||{};r.g+=s.g||0;r.a+=s.a||0;r.y+=s.y||0;r.r+=s.r?1:0;if(ev.lineup.slots[0]===p.id)r.c+=s.conc||0;const f=fanta(ev,p.id);if(f!=null){r.vf.push(f);r.vb.push(parseFloat(s.vote))}});return r});
+function vStat(){const A=S.players.map(p=>{const r={p,m:S.events.filter(ev=>{const q=mvpOf(ev);return q&&q.ids.includes(p.id)}).length,app:0,g:0,a:0,y:0,r:0,c:0,vb:[],vf:[]};S.events.forEach(ev=>{if(!played(ev,p.id))return;r.app++;const s=ev.stats?.[p.id]||{};r.g+=s.g||0;r.a+=s.a||0;r.y+=s.y||0;r.r+=s.r?1:0;if(isGK(ev,p.id))r.c+=s.conc||0;const f=fanta(ev,p.id);if(f!=null){r.vf.push(f);r.vb.push(parseFloat(s.vote))}});return r});
 if(!A.length)return msg('Nessun atleta in anagrafe.');const av=a=>a.length?a.reduce((x,y)=>x+y,0)/a.length:null;
 return['P','D','C','A',''].map(k=>{const L=A.filter(r=>(r.p.role||'')===k).sort((a,b)=>a.p.name.localeCompare(b.p.name));if(!L.length)return'';const gk=k==='P';
 return`<h4>${RP[k]||'Ruolo non assegnato'}</h4><div style="overflow:auto"><table><tr><th>Atleta</th><th>Pres</th><th>Gol</th><th>Ass</th><th>Amm</th><th>Esp</th>${gk?'<th>Subiti</th>':''}<th>MVP</th><th>M.Voto</th><th>M.Fanta</th></tr>${L.map(r=>`<tr><td>${e(r.p.name)}</td><td>${r.app}</td><td>${r.g}</td><td>${r.a}</td><td>${r.y}</td><td>${r.r}</td>${gk?`<td>${r.c}</td>`:''}<td>${r.m}</td><td>${fmt(av(r.vb))}</td><td>${fmt(av(r.vf))}</td></tr>`).join('')}</table></div>`}).join('')}
