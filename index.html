@@ -25,13 +25,58 @@ main h4{color:#8a6a00;border-bottom:2px solid #c99a1c;padding-bottom:3px}.auth h
 .hm button.ins{background:#c99a1c;color:#fff;border-left-color:#8a6a00}
 .bdbar{background:linear-gradient(90deg,#c99a1c,#e6b830);color:#1b2333;text-align:center;padding:7px 10px;font-size:13px;font-weight:700}
 .bell{position:relative}.bell b{position:absolute;top:-6px;right:-6px;background:#e53935;color:#fff;border-radius:10px;font-size:10px;padding:1px 5px;flex:none}.nbar{background:#1e3a8a;color:#fff;text-align:center;padding:8px 10px;font-size:13px;cursor:pointer;border-bottom:3px solid #c99a1c}
+#mvfx{position:fixed;inset:0;z-index:1000;background:#02040c;color:#fff;overflow:hidden;display:flex;align-items:center;justify-content:center;text-align:center;user-select:none;-webkit-user-select:none;touch-action:manipulation}
+#mvfx .bg{position:absolute;inset:0;background:radial-gradient(circle at 50% 40%,#1e3a8a 0%,#0a1f4d 42%,#02040c 80%);opacity:0;transition:opacity 2.5s}
+#mvfx .bg.on{opacity:1}
+#mvfx .rays{position:absolute;left:50%;top:42%;width:260vmax;height:260vmax;margin:-130vmax 0 0 -130vmax;background:repeating-conic-gradient(rgba(240,199,94,.34) 0 5deg,transparent 5deg 15deg);-webkit-mask-image:radial-gradient(circle,#000 0,transparent 55%);mask-image:radial-gradient(circle,#000 0,transparent 55%);animation:mvspin 16s linear infinite;opacity:0;transition:opacity .8s}
+#mvfx .rays.on{opacity:1}
+@keyframes mvspin{to{transform:rotate(360deg)}}
+#mvfx .spot{position:absolute;left:50%;top:-10%;width:70vmin;height:130%;margin-left:-35vmin;background:linear-gradient(rgba(255,255,255,.22),transparent 85%);clip-path:polygon(42% 0,58% 0,100% 100%,0 100%);opacity:0;transition:opacity 1.2s;transform-origin:50% 0}
+#mvfx .spot.on{opacity:1;animation:mvsway 3.2s ease-in-out infinite alternate}
+@keyframes mvsway{from{transform:rotate(-14deg)}to{transform:rotate(14deg)}}
+#mvfx canvas{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:3}
+#mvfx .flash{position:absolute;inset:0;background:#fff;opacity:0;pointer-events:none;z-index:4}
+#mvfx .flash.go{animation:mvflash 1.1s ease-out}
+@keyframes mvflash{0%{opacity:1}100%{opacity:0}}
+#mvfx .stage{position:relative;z-index:2;width:100%;max-width:560px;max-height:100%;overflow-y:auto;padding:14px 16px}
+#mvfx .tb{position:absolute;top:calc(10px + env(safe-area-inset-top,0px));z-index:6;background:rgba(0,0,0,.45);color:#fff;border:1px solid rgba(255,255,255,.35);border-radius:20px;padding:6px 13px;font-size:14px;cursor:pointer}
+#mvfx .tb.r{right:12px}#mvfx .tb.l{left:12px}
+#mvfx .big{font-size:clamp(24px,7vw,40px);font-weight:800;letter-spacing:1px;line-height:1.2;opacity:0;transform:translateY(14px) scale(.96);transition:opacity 1s,transform 1s;text-shadow:0 0 24px rgba(240,199,94,.6)}
+#mvfx .big.on{opacity:1;transform:none}
+#mvfx .big em{font-style:normal;color:#f0c75e}
+#mvfx .lg{width:clamp(70px,22vw,110px);height:clamp(70px,22vw,110px);object-fit:contain;border-radius:50%;background:#fff;padding:4px;border:3px solid #c99a1c;box-shadow:0 0 30px rgba(240,199,94,.55)}
+#mvfx .kick{font-size:clamp(13px,3.8vw,17px);letter-spacing:.42em;color:#f0c75e;font-weight:800;margin:12px 0 4px;text-indent:.42em}
+#mvfx .go{margin-top:22px;background:linear-gradient(#f6d77a,#c99a1c);color:#0a1f4d;font-weight:900;font-size:19px;border:0;border-radius:40px;padding:15px 30px;letter-spacing:1px;box-shadow:0 0 0 0 rgba(240,199,94,.7);animation:mvpulse 1.4s infinite;cursor:pointer}
+@keyframes mvpulse{70%{box-shadow:0 0 0 22px rgba(240,199,94,0)}100%{box-shadow:0 0 0 0 rgba(240,199,94,0)}}
+#mvfx .sub{font-size:13px;opacity:.8;margin-top:8px}
+#mvfx .sh{display:flex;flex-direction:column;align-items:center;gap:12px}
+#mvfx .ph{width:min(58vw,250px);height:min(58vw,250px);border-radius:50%;border:5px solid #c99a1c;background:#14306f center/cover no-repeat;display:flex;align-items:center;justify-content:center;font-size:84px;box-shadow:0 0 40px rgba(240,199,94,.45)}
+#mvfx .ph.bl{filter:blur(9px) brightness(.75) saturate(.6)}
+#mvfx .ph.q{font-size:110px;font-weight:900;color:#f0c75e;animation:mvthrob .7s infinite alternate}
+@keyframes mvthrob{from{transform:scale(.94);box-shadow:0 0 20px rgba(240,199,94,.3)}to{transform:scale(1.05);box-shadow:0 0 60px rgba(240,199,94,.8)}}
+#mvfx .nm{font-size:clamp(22px,6.4vw,34px);font-weight:800;color:#f0c75e;min-height:1.3em;text-shadow:0 0 14px rgba(240,199,94,.5)}
+#mvfx .pcs{display:flex;flex-wrap:wrap;gap:14px;justify-content:center;margin:6px 0}
+#mvfx .pc{flex:1 1 0;min-width:150px;max-width:300px}
+#mvfx .pc .pp{width:min(58vw,260px);height:min(58vw,260px);margin:0 auto;border-radius:50%;border:6px solid #f0c75e;background:#14306f center/cover no-repeat;display:flex;align-items:center;justify-content:center;font-size:90px;box-shadow:0 0 0 4px #1e3a8a,0 0 55px rgba(240,199,94,.85)}
+#mvfx .pcs.m .pp{width:min(38vw,170px);height:min(38vw,170px);font-size:56px}
+#mvfx .pc .pn{font-size:clamp(22px,6.6vw,34px);font-weight:900;margin-top:10px;line-height:1.1;text-shadow:0 2px 12px #000}
+#mvfx .pc .nu{display:inline-block;background:#c99a1c;color:#0a1f4d;border-radius:8px;padding:1px 9px;font-size:.7em;margin-right:6px;vertical-align:middle}
+#mvfx .pc .cn{margin-top:10px;background:rgba(10,31,77,.78);border:2px solid #c99a1c;border-radius:14px;padding:8px 10px}
+#mvfx .pc .cn b{font-size:34px;color:#f0c75e;font-weight:900}
+#mvfx .pc .cn small{display:block;font-size:12px;opacity:.9;letter-spacing:.5px}
+#mvfx .pop{opacity:0;animation:mvpop .9s cubic-bezier(.2,1.3,.4,1) forwards}
+@keyframes mvpop{0%{opacity:0;transform:scale(3);filter:blur(12px)}100%{opacity:1;transform:none;filter:none}}
+#mvfx .fade{opacity:0;animation:mvfade .8s ease-out forwards}
+@keyframes mvfade{to{opacity:1}}
+#mvfx .meta{font-size:13px;opacity:.9;margin-top:10px}
+#mvfx .gold{background:linear-gradient(#f6d77a,#c99a1c);color:#0a1f4d;font-weight:800;border:0;border-radius:30px;padding:12px 26px;font-size:16px;margin-top:14px;cursor:pointer}
 </style></head><body><div id="bn" style="display:none"></div><div id="app"></div><div id="m"></div>
 <script src="firebase-config.js"></script>
 <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
 <script>
-const V='1.21',K='osm_v1',$=q=>document.querySelector(q),p2=n=>String(n).padStart(2,'0'),uid=()=>Math.random().toString(36).slice(2,9);
+const V='1.22',K='osm_v1',$=q=>document.querySelector(q),p2=n=>String(n).padStart(2,'0'),uid=()=>Math.random().toString(36).slice(2,9);
 const e=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const def=()=>({team:{name:'Oratorio San Michele',logo:''},players:[],events:[],users:[],votes:{},mvpv:{},notices:[],rd:{},rdAll:{},rdOk:false});
 let S=def();
@@ -187,7 +232,7 @@ function vMvp(){const evs=S.events.filter(x=>x.type!=='all').sort((a,b)=>b.date.
 done.forEach(r=>r.m.ids.forEach(id=>tot[id]=(tot[id]||0)+1));const lead=Object.entries(tot).sort((a,b)=>b[1]-a[1]),live=evs.filter(x=>x.date===today()&&S.mvpv?.[x.id]&&!x.mvpAdmin?.length),L=admin()?evs.filter(x=>x.date<=today()).map(ev=>({ev,m:mvpOf(ev)})):done;
 return(lead.length?`<h4>Classifica MVP</h4><div class=card style="border-color:#c99a1c">${lead.map(([id,n],i)=>`<div class=row><span style="width:22px">${i+1}.</span><span style="flex:1">${e(pl(id).name)}</span><b>🏆 ${n}</b></div>`).join('')}</div>`:'')
 +(live.length?`<h4>Votazione in corso</h4>`+live.map(ev=>`<div class=card><b>${TYPES[ev.type][0]} vs ${e(ev.opp)}</b><br><small>Il Man of the Match verrà proclamato a fine giornata.</small></div>${admin()?mvpBox(ev):''}`).join(''):'')
-+`<h4>Man of the Match per partita</h4>`+(L.map(({ev,m})=>`<div class=card style="border-color:${TYPES[ev.type][1]}"><b>${TYPES[ev.type][0]}</b> ${ev.date.split('-').reverse().join('/')} vs ${e(ev.opp)} ${HA(ev)}${m?m.ids.map(id=>{const p=pl(id);return`<div class=row style="margin-top:8px;cursor:pointer" onclick="gig('${ev.id}','${id}')"><span style="width:52px;height:52px;border-radius:50%;background:#e3e8f3 center/cover;display:inline-flex;align-items:center;justify-content:center;font-size:26px;border:2px solid #c99a1c;${p.photo?`background-image:url(${p.photo})`:''}">${p.photo?'':'👤'}</span><div style="flex:1"><b>${e(p.name)}</b><br><small>🏆 ${m.man?"✔ Scelto dall'admin":m.n+' '+(m.n===1?'voto':'voti')+(m.ids.length>1?' · ex aequo':'')}</small></div><span style="color:#8a6a00;font-size:12px">🔍 Gigantografia</span></div>`}).join(''):'<div style="margin-top:6px;color:#667">Nessun MVP proclamato</div>'}${admin()?`<div class=row style="margin-top:10px"><button class="b g" onclick="mvpE('${ev.id}')">✎ Modifica MVP</button>${m&&!ev.mvpAdmin?.length?`<button class=b onclick="mvpC('${ev.id}')">✔ Conferma</button>`:''}${ev.mvpAdmin?.length?`<button class="b g" onclick="mvpR('${ev.id}')">↺ Ripristina dai voti</button>`:''}</div>${mvpBox(ev)}`:''}</div>`).join('')||msg('Nessun Man of the Match ancora proclamato.'))}
++`<h4>Man of the Match per partita</h4>`+(L.map(({ev,m})=>`<div class=card style="border-color:${TYPES[ev.type][1]}"><b>${TYPES[ev.type][0]}</b> ${ev.date.split('-').reverse().join('/')} vs ${e(ev.opp)} ${HA(ev)}${m?m.ids.map(id=>{const p=pl(id);return`<div class=row style="margin-top:8px;cursor:pointer" onclick="gig('${ev.id}','${id}')"><span style="width:52px;height:52px;border-radius:50%;background:#e3e8f3 center/cover;display:inline-flex;align-items:center;justify-content:center;font-size:26px;border:2px solid #c99a1c;${p.photo?`background-image:url(${p.photo})`:''}">${p.photo?'':'👤'}</span><div style="flex:1"><b>${e(p.name)}</b><br><small>🏆 ${m.man?"✔ Scelto dall'admin":m.n+' '+(m.n===1?'voto':'voti')+(m.ids.length>1?' · ex aequo':'')}</small></div><span style="color:#8a6a00;font-size:12px">🔍 Gigantografia</span></div>`}).join(''):'<div style="margin-top:6px;color:#667">Nessun MVP proclamato</div>'}${m?`<div style="margin-top:8px"><button class="b g" onclick="mvpFx('${ev.id}')">🎬 Rivedi il video</button></div>`:''}${admin()?`<div class=row style="margin-top:10px"><button class="b g" onclick="mvpE('${ev.id}')">✎ Modifica MVP</button>${m&&!ev.mvpAdmin?.length?`<button class=b onclick="mvpC('${ev.id}')">✔ Conferma</button>`:''}${ev.mvpAdmin?.length?`<button class="b g" onclick="mvpR('${ev.id}')">↺ Ripristina dai voti</button>`:''}</div>${mvpBox(ev)}`:''}</div>`).join('')||msg('Nessun Man of the Match ancora proclamato.'))}
 function mvpE(eid){const ev=S.events.find(x=>x.id===eid),inM=new Set(ids(ev)),cu=ev.mvpAdmin?.length?ev.mvpAdmin:(mvpOf(ev)?.ids||[]),ps=[...S.players].sort((a,b)=>a.name.localeCompare(b.name));
 const mk=c=>{const o=p=>`<option value=${p.id} ${p.id===c?'selected':''}>${e(p.name)}</option>`;return'<option value="">— nessuno —</option>'+(inM.size?`<optgroup label="Giocatori della partita">${ps.filter(p=>inM.has(p.id)).map(o).join('')}</optgroup><optgroup label="Altri">${ps.filter(p=>!inM.has(p.id)).map(o).join('')}</optgroup>`:ps.map(o).join(''))};
 M(`<h3>🏆 Modifica Man of the Match</h3><p style="font-size:13px">${TYPES[ev.type][0]} ${ev.date.split('-').reverse().join('/')} vs ${e(ev.opp)}</p><label>Man of the Match</label><select id=mv1>${mk(cu[0]||'')}</select><label>Secondo MVP a pari merito (facoltativo)</label><select id=mv2>${mk(cu[1]||'')}</select><p style="font-size:12px;color:#667">Scegliendo "nessuno" nel primo campo si torna al risultato dei voti degli utenti.</p><div class=row><button class=b onclick="mvpS('${eid}')">Salva</button><button class="b g" onclick="X()">Annulla</button></div>`)}
@@ -196,6 +241,90 @@ function mvpC(eid){const ev=S.events.find(x=>x.id===eid),m=mvpOf(ev);if(m){ev.mv
 function mvpR(eid){delete S.events.find(x=>x.id===eid).mvpAdmin;save();R()}
 function gig(eid,id){const ev=S.events.find(x=>x.id===eid),p=pl(id),m=mvpOf(ev);if(!p||!m)return;
 M(`<div style="text-align:center;background:linear-gradient(#0a1f4d,#1e3a8a);border:4px solid #c99a1c;border-radius:14px;padding:14px;color:#fff"><div style="font-size:13px;letter-spacing:4px;color:#f0c75e;font-weight:700">MAN OF THE MATCH</div>${p.photo?`<img src="${p.photo}" style="width:100%;max-height:62vh;object-fit:cover;border-radius:10px;margin:10px 0;border:3px solid #fff">`:'<div style="font-size:130px;margin:10px 0">👤</div>'}<div style="font-size:26px;font-weight:800">${p.num?'#'+e(p.num)+' ':''}${e(p.name)}</div><div style="margin-top:4px">🏆 ${m.man?"Scelto dall'admin":m.n+' '+(m.n===1?'voto':'voti')}</div><div style="font-size:12px;opacity:.85">${TYPES[ev.type][0]} · ${ev.date.split('-').reverse().join('/')} vs ${e(ev.opp)}</div></div><br><button class="b g" onclick="X()">Chiudi</button>`);$('#m>div').style.maxWidth='560px'}
+/* ===== VIDEO MAN OF THE MATCH ===== */
+let MV=null,mvpChecked=false;
+function mvAudio(){
+const AC=window.AudioContext||window.webkitAudioContext;if(!AC)return null;let c;try{c=new AC()}catch(x){return null}
+if(c.state==='suspended')c.resume();
+const M=c.createGain();M.gain.value=.9;const cp=c.createDynamicsCompressor();M.connect(cp);cp.connect(c.destination);
+const nb=c.createBuffer(1,c.sampleRate*2,c.sampleRate),nd=nb.getChannelData(0);for(let i=0;i<nd.length;i++)nd[i]=Math.random()*2-1;
+const T0=c.currentTime+.15,g=v=>{const x=c.createGain();x.gain.value=v||0;return x};
+const osc=(ty,f,t,d,v,f2)=>{const o=c.createOscillator(),x=g(0);o.type=ty;o.frequency.setValueAtTime(f,t);if(f2)o.frequency.exponentialRampToValueAtTime(f2,t+d);x.gain.setValueAtTime(0,t);x.gain.linearRampToValueAtTime(v,t+.01);x.gain.exponentialRampToValueAtTime(.0001,t+d);o.connect(x);x.connect(M);o.start(t);o.stop(t+d+.05)};
+const nz=(t,d,v,ty,f)=>{const s=c.createBufferSource();s.buffer=nb;const fl=c.createBiquadFilter();fl.type=ty;fl.frequency.value=f;const x=g(0);x.gain.setValueAtTime(v,t);x.gain.exponentialRampToValueAtTime(.0001,t+d);s.connect(fl);fl.connect(x);x.connect(M);s.start(t);s.stop(t+d+.05)};
+const beat=(t,v)=>{osc('sine',130,t,.32,v,42);osc('sine',100,t+.19,.28,v*.6,38)};
+/* suspense: drone + battito che accelera + riser + rullo */
+const lp=c.createBiquadFilter();lp.type='lowpass';lp.frequency.setValueAtTime(150,T0);lp.frequency.exponentialRampToValueAtTime(1500,T0+14.4);
+const dr=g(0);dr.gain.setValueAtTime(0,T0);dr.gain.linearRampToValueAtTime(.2,T0+14.3);dr.gain.linearRampToValueAtTime(0,T0+14.6);lp.connect(dr);dr.connect(M);
+[55,55.5,82.4].forEach(f=>{const o=c.createOscillator();o.type='sawtooth';o.frequency.value=f;o.connect(lp);o.start(T0);o.stop(T0+15)});
+const rl=c.createBiquadFilter();rl.type='lowpass';rl.frequency.value=3000;const rg=g(0);rg.gain.setValueAtTime(0,T0+7);rg.gain.linearRampToValueAtTime(.1,T0+14.3);rg.gain.linearRampToValueAtTime(0,T0+14.6);rl.connect(rg);rg.connect(M);
+const ro=c.createOscillator();ro.type='sawtooth';ro.frequency.setValueAtTime(180,T0+7);ro.frequency.exponentialRampToValueAtTime(1900,T0+14.5);ro.connect(rl);ro.start(T0+7);ro.stop(T0+15);
+const ns=c.createBufferSource();ns.buffer=nb;ns.loop=true;const bp=c.createBiquadFilter();bp.type='bandpass';bp.Q.value=1.2;bp.frequency.setValueAtTime(300,T0+7);bp.frequency.exponentialRampToValueAtTime(7000,T0+14.5);const ng=g(0);ng.gain.setValueAtTime(0,T0+7);ng.gain.linearRampToValueAtTime(.18,T0+14.3);ng.gain.linearRampToValueAtTime(0,T0+14.6);ns.connect(bp);bp.connect(ng);ng.connect(M);ns.start(T0+7);ns.stop(T0+15);
+for(let t=.3,i=.95;t<14.4;t+=i,i=Math.max(.36,i*.93))beat(T0+t,.55+Math.min(.35,t/40));
+for(let t=11,i=.2;t<14.4;t+=i,i=Math.max(.05,i*.88))nz(T0+t,.07,.22,'highpass',2000);
+beat(T0+15,.5);beat(T0+15.45,.6);
+const br=(f,t,d,v)=>{const x=g(0),l=c.createBiquadFilter();l.type='lowpass';l.frequency.setValueAtTime(500,t);l.frequency.exponentialRampToValueAtTime(3200,t+.12);l.Q.value=2;[-7,0,7].forEach(dt=>{const o=c.createOscillator();o.type='sawtooth';o.frequency.value=f;o.detune.value=dt;o.connect(l);o.start(t);o.stop(t+d+.3)});l.connect(x);x.connect(M);x.gain.setValueAtTime(0,t);x.gain.linearRampToValueAtTime(v,t+.04);x.gain.setValueAtTime(v,t+Math.max(.05,d-.05));x.gain.exponentialRampToValueAtTime(.0001,t+d+.25)};
+const N={C3:130.81,G3:196,B3:246.94,C4:261.63,D4:293.66,E4:329.63,G4:392,B4:493.88,C5:523.25,D5:587.33,E5:659.25,G5:783.99,C6:1046.5,C2:65.41};
+return{
+blip(p){osc('triangle',300+p*600,c.currentTime,.07,.16)},
+tick(){osc('square',1000,c.currentTime,.05,.07)},
+reveal(){const t=T0+15.8;
+osc('sine',95,t,2.4,1,26);nz(t,.6,.7,'lowpass',500);nz(t,2.6,.45,'highpass',2500);
+[0,.6,1.7,2.45,4].forEach(d=>{osc('sine',120,t+d,.5,.8,48);nz(t+d,.25,.35,'lowpass',300)});
+[[0,.16,'G4'],[.2,.16,'G4'],[.4,.16,'G4'],[.6,1,'C5'],[1.7,.2,'B4'],[1.95,.2,'C5'],[2.2,.2,'D5'],[2.45,1.4,'E5']].forEach(([d,l,n])=>br(N[n],t+d,l,.17));
+[[0,1.6,['C3','G3','C4','E4']],[1.7,.7,['G3','B3','D4','G4']],[2.45,1.5,['C3','G3','C4','E4']],[4,3.2,['C2','C3','G3','C4','E4','G4']]].forEach(([d,l,ns])=>ns.forEach(n=>br(N[n],t+d,l,.06)));
+[['C5',4],['E5',4],['G5',4],['C6',4]].forEach(([n,d])=>br(N[n],t+d,3.2,.1));
+for(let i=0;i<26;i++)osc('sine',1500+Math.random()*2800,t+.5+i*.16,.45,.045)},
+stop(){try{c.close()}catch(x){}},
+mute(m){M.gain.value=m?0:.9}}}
+function mvpClose(){if(!MV)return;MV.tm.forEach(clearTimeout);cancelAnimationFrame(MV.raf);if(MV.A)MV.A.stop();MV.el.remove();MV=null;R()}
+function mvpMute(){if(!MV)return;MV.mu=!MV.mu;if(MV.A)MV.A.mute(MV.mu);$('#mvm').textContent=MV.mu?'🔇':'🔊'}
+function mvpFx(eid){
+if(MV)return;const ev=S.events.find(x=>x.id===eid),m=ev&&mvpOf(ev);if(!m)return;
+const W=m.ids.map(pl).filter(Boolean);if(!W.length)return;
+const cnt=id=>S.events.filter(x=>x.type!=='all'&&x.date<=ev.date&&(q=>q&&q.ids.includes(id))(mvpOf(x))).length;
+const logo=S.team.logo||'logo.png',info=`${TYPES[ev.type][0]} · vs ${e(ev.opp)} · ${ev.date.split('-').reverse().join('/')}`;
+const el=document.createElement('div');el.id='mvfx';
+el.innerHTML=`<div class=bg></div><div class=rays></div><div class=spot></div><canvas></canvas><div class=flash></div><button class="tb r" id=mvs onclick="mvpClose()">✕ Salta</button><button class="tb l" id=mvm onclick="mvpMute()">🔊</button><div class=stage id=mvst></div>`;
+document.body.appendChild(el);MV={el,tm:[],A:null,raf:0,mu:false};
+const st=$('#mvst'),q=s=>el.querySelector(s),at=(ms,f)=>MV.tm.push(setTimeout(f,ms));
+st.innerHTML=`<img class=lg src="${logo}"><div class=kick>MAN OF THE MATCH</div><div class=big style="font-size:clamp(20px,6vw,30px)">${e(S.team.name)}</div><div class=meta>${info}</div><button class=go id=mvg>▶ SCOPRI L'MVP</button><div class=sub>🔊 Alza il volume per vivere l'esperienza</div>`;
+st.querySelector('.big').classList.add('on');
+$('#mvg').onclick=()=>{
+MV.A=mvAudio();const A=MV.A;if(A&&MV.mu)A.mute(true);
+q('.bg').classList.add('on');
+const line=h=>{st.innerHTML=`<div class=big>${h}</div>`;requestAnimationFrame(()=>requestAnimationFrame(()=>{const b=st.firstChild;b&&b.classList&&b.classList.add('on')}))},off=()=>{const b=st.firstChild;b&&b.classList&&b.classList.remove('on')};
+at(300,()=>line('La giornata è finita…'));at(2300,off);
+at(2700,()=>{q('.spot').classList.add('on');line('I tifosi hanno votato.')});at(4700,off);
+at(5100,()=>line('Un solo giocatore ha convinto <em>tutti</em>…'));at(7000,off);
+/* sorteggio dei nomi: rallenta sempre di più */
+at(7500,()=>{
+const dec=S.players.filter(p=>!W.includes(p));const pool=dec.length>1?dec:S.players;
+const n=24,raw=Array.from({length:n},(_,k)=>70+Math.pow(k/n,2.3)*520),sc=6300/raw.reduce((a,b)=>a+b,0);let tt=0,last=-1;
+st.innerHTML=`<div class=sh><div class="kick" style="margin:0">CHI SARÀ?</div><div class="ph bl" id=mvp1></div><div class=nm id=mvn1></div></div>`;
+raw.forEach((d,k)=>{tt+=d*sc;at(tt-d*sc,()=>{let i;do{i=Math.floor(Math.random()*pool.length)}while(i===last&&pool.length>1);last=i;const p=pool[i],ph=$('#mvp1'),nn=$('#mvn1');if(!ph)return;ph.style.backgroundImage=p.photo?`url(${p.photo})`:'';ph.textContent=p.photo?'':'👤';nn.textContent=p.name;if(MV.A)MV.A.blip(k/n)})})});
+/* silenzio e suspense: il '?' */
+at(14500,()=>{st.innerHTML=`<div class=sh><div class="kick" style="margin:0">E IL VINCITORE È…</div><div class="ph q">?</div><div class=nm>&nbsp;</div></div>`});
+/* RIVELAZIONE */
+at(15800,()=>{
+if(A)A.reveal();q('.flash').classList.add('go');q('.rays').classList.add('on');q('.spot').classList.remove('on');$('#mvs').textContent='✕ Chiudi';
+const one=W.length===1;
+st.innerHTML=`<img class="lg pop" src="${logo}" style="width:64px;height:64px"><div class="kick pop" style="animation-delay:.25s">${one?'MAN OF THE MATCH':'MAN OF THE MATCH · EX AEQUO'}</div><div class="pcs ${one?'':'m'}">${W.map((p,i)=>{const c=cnt(p.id);return`<div class="pc pop" style="animation-delay:${.5+i*.2}s"><div class=pp style="${p.photo?`background-image:url(${p.photo})`:''}">${p.photo?'':'👤'}</div><div class=pn>${p.num?`<span class=nu>#${e(p.num)}</span>`:''}${e(p.name)}</div><div class="cn fade" style="animation-delay:${1.6+i*.2}s">🏆 <b data-n="${c}">0</b><small>${c===1?'PRIMO PREMIO MVP!':'VOLTE MAN OF THE MATCH'}</small></div></div>`}).join('')}</div><div class="meta fade" style="animation-delay:2.4s">${m.man?'Scelto dallo staff':'🗳️ '+m.n+' '+(m.n===1?'voto':'voti')} · ${info}</div><button class="gold fade" style="animation-delay:3.2s" onclick="mvpClose()">Continua nell'app</button>`;
+/* conteggio dei premi */
+at(2300,()=>{el.querySelectorAll('b[data-n]').forEach(b=>{const N=+b.dataset.n;let k=0;const iv=setInterval(()=>{if(!MV||!b.isConnected)return clearInterval(iv);k++;b.textContent=k;if(MV.A)MV.A.tick();if(k>=N)clearInterval(iv)},360);MV.tm.push(iv)})});
+/* coriandoli */
+const cv=q('canvas'),cx=cv.getContext('2d');cv.width=innerWidth;cv.height=innerHeight;const col=['#c99a1c','#f0c75e','#1e3a8a','#4a7be8','#ffffff'],P=[];
+const add=k=>{for(let i=0;i<k;i++)P.push({x:Math.random()*cv.width,y:-20-Math.random()*cv.height*.3,vx:(Math.random()-.5)*3,vy:2+Math.random()*4,w:6+Math.random()*7,h:9+Math.random()*9,r:Math.random()*6,vr:(Math.random()-.5)*.3,c:col[Math.floor(Math.random()*col.length)]})};
+add(170);const t0=performance.now();
+const loop=()=>{if(!MV)return;const now=performance.now()-t0;if(now<7000&&P.length<320)add(3);cx.clearRect(0,0,cv.width,cv.height);for(let i=P.length-1;i>=0;i--){const p=P[i];p.x+=p.vx+Math.sin(p.y/40);p.y+=p.vy;p.r+=p.vr;if(p.y>cv.height+30){P.splice(i,1);continue}cx.save();cx.translate(p.x,p.y);cx.rotate(p.r);cx.fillStyle=p.c;cx.fillRect(-p.w/2,-p.h/2,p.w,p.h);cx.restore()}if(P.length||now<7000)MV.raf=requestAnimationFrame(loop)};
+MV.raf=requestAnimationFrame(loop)})}}
+function mvpCheck(){
+if(mvpChecked||MV||!me||!S.mvpOk||!S.events.length)return;mvpChecked=true;
+const k='osm_mvpseen_'+me;let seen=[];try{seen=JSON.parse(localStorage.getItem(k)||'[]')}catch(x){}
+const L=S.events.filter(x=>x.type!=='all'&&mvpOf(x)).sort((a,b)=>b.date.localeCompare(a.date));if(!L.length)return;
+const ev=L[0],old=(new Date(today())-new Date(ev.date))/864e5>14,fresh=!seen.includes(ev.id);
+try{localStorage.setItem(k,JSON.stringify([...new Set([...seen,...L.map(x=>x.id)])]))}catch(x){}
+if(fresh&&!old)mvpFx(ev.id)}
+{const R0=R;R=function(){R0();if(me)setTimeout(mvpCheck,350)}}
 const vl=v=>{const n=[...VOTES];if(v!==undefined&&v!==''&&!n.map(String).includes(String(v)))n.splice(2,0,v);return n};
 const vlist=ev=>myRole==='giocatore'?ids(ev).filter(i=>i===myPid):ids(ev);
 const noteG=ev=>myRole==='giocatore'?(ids(ev).includes(myPid)?'<br><small>Come giocatore puoi votare solo la tua prestazione (e il Man of the Match).</small>':'<br><small>Non risulti nella formazione di questa partita: puoi votare solo il Man of the Match.</small>'):'';
@@ -279,9 +408,9 @@ function fbInit(){if(!FB_OK)return;firebase.initializeApp(CFG);db=firebase.fires
 db.collection('meta').doc('team').onSnapshot(d=>{if(d.exists){S.team=d.data();L.team=JSON.stringify(S.team)}dirty()},er);
 for(const c of ['players','events'])db.collection(c).onSnapshot(sn=>{S[c]=sn.docs.map(d=>d.data());L[c]={};S[c].forEach(x=>L[c][x.id]=JSON.stringify(x));if(c==='events')autoAvg();dirty()},er);
 db.collection('claims').onSnapshot(sn=>{S.claims={};sn.docs.forEach(d=>S.claims[d.id]=d.data().uid);dirty()},er);
-db.collection('mvp').onSnapshot(sn=>{S.mvpv={};sn.docs.forEach(d=>{const o=d.data();(S.mvpv[o.eid]??={})[o.uid]=o.pid});dirty()},er);
+db.collection('mvp').onSnapshot(sn=>{S.mvpv={};sn.docs.forEach(d=>{const o=d.data();(S.mvpv[o.eid]??={})[o.uid]=o.pid});S.mvpOk=true;dirty()},er);
 db.collection('notices').onSnapshot(sn=>{S.nErr='';S.notices=sn.docs.map(d=>d.data()).sort((a,b)=>b.date.localeCompare(a.date));dirty()},x=>{S.nErr=x.message;dirty()});
-auth.onAuthStateChanged(async u=>{un.forEach(f=>f());un=[];if(!u){me=localStorage.getItem('osm_guest')?'guest':'';localStorage.removeItem('osm_last');myPh='';myRole='';myPid='';myOk=false;S.rd={};S.rdAll={};S.rdOk=false;localStorage.removeItem('osm_ph');S.votes={};S.users=[];return R()}
+auth.onAuthStateChanged(async u=>{un.forEach(f=>f());un=[];if(!u){me=localStorage.getItem('osm_guest')?'guest':'';localStorage.removeItem('osm_last');myPh='';myRole='';myPid='';myOk=false;S.rd={};S.rdAll={};S.rdOk=false;localStorage.removeItem('osm_ph');S.votes={};S.users=[];mvpChecked=false;return R()}
 const A=u.email==='admin@osm.local';let d=null;try{d=await db.collection('users').doc(u.uid).get()}catch(x){}if(!A&&!regInfo&&!regName&&d&&!d.exists){auth.signOut();alert('Questo account è stato eliminato. Registrati di nuovo per usare l\'app.');return}
 me=A?'Admin':regName||(d&&d.exists&&d.data().u)||u.email.split('@')[0];myPh=(d&&d.exists&&d.data().photo)||'';myPh?localStorage.setItem('osm_ph',myPh):localStorage.removeItem('osm_ph');const dd=d&&d.exists?d.data():{};if(regInfo){myRole=regInfo.role;myPid=regInfo.pid}else{myRole=dd.role||'';myPid=dd.pid||''}if(!A&&!myRole)setTimeout(()=>{if(!myRole)askRole()},400);
 localStorage.setItem('osm_last',me);if(A)un.push(db.collection('votes').onSnapshot(vt,er),db.collection('users').onSnapshot(sn=>{S.users=sn.docs.map(d=>({id:d.id,...d.data()})).filter(x=>x.u);dirty()},er));
