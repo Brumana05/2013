@@ -69,5 +69,26 @@ service cloud.firestore {
         && request.resource.data.uid == request.auth.uid
         && id == request.resource.data.eid + '_' + request.auth.uid;
     }
+    // ---- LIVE (v1.23) ----
+    // Lo stato della partita live lo scrivono solo admin e staff; lo leggono tutti.
+    match /live/{eid} {
+      allow read: if true;
+      allow create, update: if isAdmin() || isStaff();
+      allow delete: if isAdmin();
+    }
+    // Segnalazione WebRTC per la ripresa video: solo utenti registrati.
+    // Il documento "_bc" (stato della ripresa) lo scrive solo staff/admin;
+    // ogni spettatore scrive solo il proprio documento (id = suo uid).
+    match /live/{eid}/rtc/{vid} {
+      allow read: if request.auth != null;
+      allow create, update, delete: if request.auth != null
+        && (request.auth.uid == vid || isAdmin() || isStaff());
+    }
+    // Lo staff puo' aggiornare SOLO le statistiche di una partita
+    // (gol, assist, cartellini, minuti giocati calcolati dal live).
+    match /events/{id} {
+      allow update: if isStaff()
+        && request.resource.data.diff(resource.data).affectedKeys().hasOnly(['stats']);
+    }
   }
 }

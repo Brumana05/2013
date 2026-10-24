@@ -70,13 +70,282 @@ main h4{color:#8a6a00;border-bottom:2px solid #c99a1c;padding-bottom:3px}.auth h
 @keyframes mvfade{to{opacity:1}}
 #mvfx .meta{font-size:13px;opacity:.9;margin-top:10px}
 #mvfx .gold{background:linear-gradient(#f6d77a,#c99a1c);color:#0a1f4d;font-weight:800;border:0;border-radius:30px;padding:12px 26px;font-size:16px;margin-top:14px;cursor:pointer}
+/* ===== v1.23: +/-, LIVE ===== */
+a.b{text-decoration:none;display:inline-block}
+.sm2{display:grid;grid-template-columns:repeat(2,1fr);gap:6px}
+.stp{display:flex;align-items:center;gap:4px}.stp button{width:36px;height:38px;padding:0;font-size:22px;line-height:1;flex:none}.stp input{flex:1;min-width:0;width:100%;text-align:center;margin:0;padding:8px 2px;font-weight:700}
+.hm button.lvon{background:linear-gradient(90deg,#b71c1c,#e53935);color:#fff;border-left-color:#ffd54f;animation:lvpulse 1.3s infinite}
+.hm button.lvon small{display:block;font-size:11px;font-weight:600;opacity:.92;margin-top:2px}
+.hm button.lvon span{animation:lvdot 1s infinite alternate}
+@keyframes lvpulse{0%{box-shadow:0 0 0 0 rgba(229,57,53,.75)}70%{box-shadow:0 0 0 16px rgba(229,57,53,0)}100%{box-shadow:0 0 0 0 rgba(229,57,53,0)}}
+@keyframes lvdot{from{opacity:1;transform:scale(1)}to{opacity:.35;transform:scale(.8)}}
+.lvbd{background:#e53935;color:#fff;border-radius:8px;padding:1px 7px;font-size:11px;font-weight:800;animation:lvdot 1s infinite alternate}
+.lvtop{display:flex;align-items:center;gap:8px;margin-bottom:8px;font-size:13px;color:#556}
+.lvw{position:relative;margin:0 0 8px}
+.lvsb{position:absolute;top:4px;left:50%;transform:translateX(-50%);z-index:5;display:flex;align-items:center;gap:8px;background:rgba(6,26,69,.9);color:#fff;border:2px solid #c99a1c;border-radius:16px;padding:5px 10px;box-shadow:0 4px 14px #0006;max-width:98%}
+.lvsb .tm{display:flex;flex-direction:column;align-items:center;width:64px}.lvsb .tm small{font-size:9px;line-height:1.1;text-align:center;max-width:64px;overflow:hidden;white-space:nowrap;text-overflow:ellipsis;margin-top:2px}
+.lvlg{border-radius:50%;object-fit:contain;background:#fff;display:inline-flex;align-items:center;justify-content:center;font-weight:800;color:#1e3a8a;border:2px solid #fff;flex:none}
+.lvsb .md{text-align:center;min-width:86px}.lvsb .sc{font-size:26px;font-weight:900;line-height:1.05}.lvsb .clk{font-size:15px;font-weight:800;color:#f0c75e;font-variant-numeric:tabular-nums}.lvsb .stl{font-size:8px;opacity:.8;letter-spacing:.5px}
+.lvsb.bump .sc{animation:lvbump .9s ease-out 3}
+@keyframes lvbump{0%{transform:scale(1)}40%{transform:scale(1.5);color:#f0c75e}100%{transform:scale(1)}}
+.lvwp{perspective:700px;perspective-origin:50% 100%;padding-bottom:6px}
+.lvf{position:relative;transform:rotateX(14deg);transform-origin:50% 100%;transform-style:preserve-3d}
+.lvg{position:absolute;inset:0;border-radius:14px;border:3px solid #fff;overflow:hidden;background:repeating-linear-gradient(90deg,#2f8f4c 0 10%,#277f40 10% 20%);box-shadow:0 10px 24px #0005}
+.lvg svg{position:absolute;inset:0;width:100%;height:100%}
+.tk{position:absolute;transform:translate(-50%,-50%) rotateX(-14deg);transform-origin:50% 100%;text-align:center;color:#fff}
+.tk b{display:block;overflow:hidden;white-space:nowrap;text-overflow:ellipsis;text-shadow:0 1px 3px #000,0 0 2px #000;margin-top:1px}
+.tk .ic{display:block;min-height:1em;line-height:1.1;text-shadow:0 1px 2px #000}
+.tk.rd .lva{filter:grayscale(1) brightness(.7)}
+.lva{display:inline-flex;align-items:center;justify-content:center;border-radius:50%;background:#14306f center/cover no-repeat;border:2px solid #fff;color:#fff;font-weight:800;position:relative;font-style:normal;flex:none;box-shadow:0 2px 6px #0006}
+.lva .nb{position:absolute;top:-4px;left:-4px;background:#c99a1c;color:#fff;border-radius:9px;font-size:10px;font-style:normal;min-width:16px;height:16px;line-height:16px;padding:0 3px;border:1px solid #fff}
+.lva .sbi{position:absolute;bottom:-3px;right:-3px;background:#2e9e4f;color:#fff;border-radius:50%;width:15px;height:15px;font-size:8px;line-height:15px;font-style:normal;border:1px solid #fff}
+.lvempty{background:#fff3cd;color:#664d03;border-radius:12px;padding:30px 12px;text-align:center;margin-top:70px}
+.lvc{background:#fff;border-radius:12px;padding:10px;margin:8px 0;box-shadow:0 1px 3px #0001;border-left:6px solid #c99a1c}
+.lvc .row{margin:6px 0}.lvc .b{padding:10px 12px}.b.lvg{background:#2e9e4f}.b.lvr{background:#e53935}.b.lvw2{background:#25a244}
+.lvtabs{display:flex;gap:6px;margin:10px 0}.lvtabs button{flex:1;border:0;border-radius:10px;padding:10px;font-weight:700;background:#e3e8f3;color:#1e3a8a;font-size:14px}.lvtabs button.on{background:#1e3a8a;color:#fff}
+.crh{display:grid;grid-template-columns:1fr 54px 1fr;gap:4px;font-size:11px;font-weight:700;color:#1e3a8a;margin:6px 0 0;align-items:center}
+.crh>div:first-child{display:flex;align-items:center;gap:5px}.crh>div:last-child{display:flex;align-items:center;gap:5px;justify-content:flex-end;text-align:right}
+.cl{position:relative}.cl:before{content:"";position:absolute;left:50%;top:0;bottom:0;width:2px;background:#cfd6e6;transform:translateX(-1px)}
+.cr{display:grid;grid-template-columns:1fr 54px 1fr;gap:4px;align-items:center;margin:8px 0;position:relative}
+.cr .cm{text-align:center;background:#1e3a8a;color:#fff;border-radius:12px;font-size:12px;font-weight:800;padding:3px 2px;position:relative;z-index:1;border:2px solid #c99a1c}
+.ce{display:flex;gap:6px;align-items:center;border-radius:10px;padding:6px;box-shadow:0 1px 3px #0002;font-size:12px;line-height:1.25;position:relative;z-index:1;animation:cein .5s}
+.ce.us{background:#e8eefc}.ce.op{background:#f1f1f1}
+.c2 .ce{flex-direction:row-reverse;text-align:right}
+.ce .ct{flex:1;min-width:0;word-break:break-word}.ce .ct small{color:#556}
+.ce .sw{display:flex;flex:none}.ce .sw .lva+.lva{margin-left:-10px}
+.ce .gi{color:#1b7a3a;font-weight:700}.ce .ro{color:#b3261e;font-weight:700}
+@keyframes cein{from{opacity:0;transform:scale(.85)}to{opacity:1;transform:none}}
+.crm{text-align:center;margin:12px 0;font-weight:800;font-size:12px;color:#fff;background:#1e3a8a;border-radius:20px;padding:5px 10px;position:relative;z-index:1}
+.crc{background:#fff8e1;border:1px solid #e6c35c;border-radius:10px;padding:8px 10px;margin:10px 0;font-size:13px;white-space:pre-wrap;position:relative;z-index:1}
+.crc .ph{background:#c99a1c;color:#fff;border-radius:8px;padding:1px 7px;font-size:11px;font-weight:700;margin-right:4px}
+.lve{background:#0001;border:0;border-radius:6px;padding:2px 6px;font-size:12px;flex:none}
+.fog{display:grid;grid-template-columns:repeat(2,1fr);gap:6px}
+.fch{display:flex;gap:8px;align-items:center;background:#fff;border-radius:10px;padding:6px;box-shadow:0 1px 3px #0001;font-size:12px;min-width:0}
+.fch>div{min-width:0}.fch small{color:#667}
+#lvv{position:fixed;right:8px;bottom:calc(8px + env(safe-area-inset-bottom,0px));width:min(46vw,230px);z-index:45;background:#000;border-radius:12px;overflow:hidden;box-shadow:0 4px 18px #0008;border:2px solid #c99a1c}
+#lvv.big{left:50%;right:auto;transform:translateX(-50%);width:min(96vw,600px);top:calc(56px + env(safe-area-inset-top,0px));bottom:auto}
+#lvv video{width:100%;display:block;aspect-ratio:16/9;background:#000;object-fit:contain}
+#lvv .vb{position:absolute;top:4px;right:4px;display:flex;gap:4px;align-items:center}
+#lvv .vb button{background:#0009;color:#fff;border:0;border-radius:8px;padding:3px 7px;font-size:14px}
+#lvv .vb b{color:#fff;font-size:11px;background:#e53935;border-radius:8px;padding:3px 6px;animation:lvdot 1s infinite alternate}
+#lvv .vm{position:absolute;left:0;right:0;bottom:0;color:#fff;font-size:11px;text-align:center;padding:4px;background:#0007}#lvv .vm:empty{display:none}
+#lvfx{position:fixed;left:0;right:0;top:calc(76px + env(safe-area-inset-top,0px));z-index:60;display:none;justify-content:center;pointer-events:none}#lvfx.on{display:flex}
+#lvfx .fx{position:relative;min-width:230px;max-width:92vw;text-align:center;color:#fff;border-radius:18px;padding:12px 18px 14px;background:linear-gradient(#0a1f4d,#1e3a8a);border:3px solid #f0c75e;box-shadow:0 8px 30px #000a,0 0 40px rgba(240,199,94,.5);animation:fxin .55s cubic-bezier(.2,1.4,.4,1),fxout .5s ease-in 3.7s forwards}
+#lvfx .fx.opp{background:linear-gradient(#2b2b2b,#555);border-color:#bbb;box-shadow:0 8px 30px #000a}
+#lvfx .fx.yc{border-color:#ffd600}#lvfx .fx.rc{border-color:#e53935}
+#lvfx .t{font-size:26px;font-weight:900;letter-spacing:1px;color:#f0c75e;text-shadow:0 0 14px rgba(240,199,94,.6)}
+#lvfx .n{font-size:18px;font-weight:800}#lvfx .s{font-size:12px;opacity:.9}
+#lvfx .lva{border-color:#f0c75e;border-width:3px;margin:6px 3px 4px;vertical-align:middle}
+#lvfx .ar{font-size:26px;font-weight:900;vertical-align:middle}
+#lvfx .cd{display:inline-block;width:34px;height:46px;border-radius:5px;animation:fxcard .9s cubic-bezier(.2,1.4,.4,1);box-shadow:0 2px 8px #0008;vertical-align:middle;margin:0 8px}
+#lvfx .cf{position:absolute;top:-10px;font-size:18px;animation:fxfall 2.4s ease-in forwards;opacity:0}
+@keyframes fxin{0%{opacity:0;transform:translateY(-30px) scale(.5)}100%{opacity:1;transform:none}}
+@keyframes fxout{to{opacity:0;transform:translateY(-20px) scale(.9)}}
+@keyframes fxcard{0%{transform:translateY(-60px) rotate(-120deg) scale(.3);opacity:0}100%{transform:none;opacity:1}}
+@keyframes fxfall{0%{transform:translateY(-10px) rotate(0);opacity:1}100%{transform:translateY(190px) rotate(360deg);opacity:0}}
 </style></head><body><div id="bn" style="display:none"></div><div id="app"></div><div id="m"></div>
 <script src="firebase-config.js"></script>
 <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
 <script>
-const V='1.22',K='osm_v1',$=q=>document.querySelector(q),p2=n=>String(n).padStart(2,'0'),uid=()=>Math.random().toString(36).slice(2,9);
+/* ===== LIVE (v1.23) ===== */
+let lvSel=null,lvTab='cr',lvT=null,lvDraft='',lvPrev={},BC=null,VW=null;
+const GT=['Azione','Rigore','Punizione',"Calcio d'angolo",'Colpo di testa','Autogol','Altro'];
+const lvSTL={pre:'PRIMA DEL FISCHIO','1t':'1° TEMPO',ht:'INTERVALLO','2t':'2° TEMPO',ft:'FINITA'};
+const lvOf=id=>(S.live||{})[id]||null,lvDef=ev=>({eid:ev.id,st:'pre',dur:ev.dur||35,ev:[],cm:[],wa:'',cam:null});
+const lvAct=L=>!!L&&(L.st==='1t'||L.st==='2t'||L.st==='ht'),lvP=L=>(L.dur||35)*60;
+const lvIce=()=>[{urls:'stun:stun.l.google.com:19302'},{urls:'stun:stun1.l.google.com:19302'},...(typeof TURN_SERVERS!=='undefined'?TURN_SERVERS:[])];
+function lvNow(){return S.events.filter(x=>lvAct(lvOf(x.id))).sort((a,b)=>(lvOf(b.id).t0||0)-(lvOf(a.id).t0||0))[0]||null}
+function lvOpen(){tab='live';const x=lvNow();if(x)lvSel=x.id;R()}
+function lvBtn(t){const x=lvNow();if(!x)return`<button onclick="lvOpen()"><span>${t[1]}</span>${t[2]}</button>`;const L=lvOf(x.id),sd=lvSides(x),sc=lvScore(L);
+return`<button class=lvon onclick="lvOpen()"><span>🔴</span><div>LIVE · ${e(sd.l.name)} ${sd.l.us?sc.u:sc.o} - ${sd.r.us?sc.u:sc.o} ${e(sd.r.name)}<small>Partita in corso: tocca per entrare</small></div></button>`}
+/* ---- tempo ---- */
+function lvPs(L){const n=Date.now(),P=lvP(L);if(L.st==='1t')return Math.max(0,(n-L.t0)/1000);if(L.st==='ht')return L.s1||0;if(L.st==='2t')return(L.s1==null?P:L.s1)+Math.max(0,(n-L.t2)/1000);if(L.st==='ft')return L.sEnd||0;return 0}
+function lvM(L){const P=lvP(L),ps=lvPs(L),sec=L.st==='2t'||(L.st==='ft'&&!!L.t2),lab=sec?P+(ps-(L.s1==null?P:L.s1)):ps,lim=sec?2*P:P;let m=0,ex=0;if(L.st!=='pre'){if(lab<lim)m=Math.floor(lab/60)+1;else{m=lim/60;ex=Math.floor((lab-lim)/60)+1}}return{m,ex,ps,lab}}
+function lvClk(L){if(!L||L.st==='pre')return'—';if(L.st==='ht')return'INT';if(L.st==='ft')return'FINE';const q=lvM(L);return q.ex?`${q.m}+${q.ex}'`:`${p2(Math.floor(q.lab/60))}:${p2(Math.floor(q.lab%60))}`}
+function lvPsFrom(L,m,ex){const P=lvP(L);if(m>P/60){const s1=L.s1==null?P:L.s1;return s1+(Math.max(0,m-1)*60-P)+ex*60}return(Math.max(0,m-1)+ex)*60}
+const lvMin=x=>`${x.m}${x.ex?'+'+x.ex:''}'`;
+function lvScore(L){let u=0,o=0;(L.ev||[]).forEach(x=>{if(x.type!=='goal')return;((x.side==='us')!==!!x.og)?u++:o++});return{u,o}}
+function lvSides(ev){const us={name:S.team.name,logo:ev.ownLogo||S.team.logo||'logo.png',us:1},op={name:ev.opp||'Avversari',logo:ev.oppLogo||'',us:0};return ev.ha==='trasf'?{l:op,r:us}:{l:us,r:op}}
+const lvLg=(t,s)=>t.logo?`<img class=lvlg src="${t.logo}" style="width:${s}px;height:${s}px">`:`<span class=lvlg style="width:${s}px;height:${s}px;font-size:${Math.round(s*.5)}px">${e((t.name||'?')[0])}</span>`;
+const lvAv=(id,sz)=>{const p=pl(id);return`<span class=lva style="width:${sz}px;height:${sz}px;font-size:${Math.round(sz*.42)}px;${p&&p.photo?`background-image:url(${p.photo})`:''}">${p&&p.photo?'':e(p&&p.num?p.num:'👤')}</span>`};
+const lvOA=(ev,sz)=>`<span class=lva style="width:${sz}px;height:${sz}px;font-size:${Math.round(sz*.45)}px;background-color:#fff;color:#1e3a8a;${ev.oppLogo?`background-image:url(${ev.oppLogo});background-size:contain`:''}">${ev.oppLogo?'':e((ev.opp||'?')[0])}</span>`;
+/* ---- giocatori in campo ---- */
+function lvSubs(L){return(L.ev||[]).filter(x=>x.side==='us'&&(x.type==='sub'||x.type==='red')).sort((a,b)=>(a.ps-b.ps)||(a.ts-b.ts))}
+function lvSlots(L,ev){const lu=ev.lineup||{slots:[],bench:[]},s=Array.from({length:11},(_,i)=>lu.slots[i]||''),red=new Set();lvSubs(L).forEach(x=>{if(x.type==='sub'){const i=s.indexOf(x.out);if(i>=0)s[i]=x['in']}else red.add(x.pid)});return{s,red}}
+function lvPool(L,ev){const o=lvSlots(L,ev),on=o.s.filter(id=>id&&!o.red.has(id)&&pl(id));return on.length?on:S.players.map(p=>p.id)}
+const lvOpt=(arr,sel,ph)=>`<option value="">${ph}</option>`+arr.map(id=>{const p=pl(id);return p?`<option value="${id}" ${id===sel?'selected':''}>${p.num?'#'+e(p.num)+' ':''}${e(p.name)}</option>`:''}).join('');
+function lvDerive(L,ev){const lu=ev.lineup;if(!lu)return{};const D={},d=id=>D[id]??={g:0,a:0,og:0,pm:0,pen:0,conc:0,y:0,r:false,out:false,'in':false,min:0};
+const star=lu.slots.filter(Boolean);ids(ev).forEach(d);const on=new Set(star),inT={},tot={};star.forEach(i=>inT[i]=0);
+const off=(id,ps)=>{if(inT[id]!=null){tot[id]=(tot[id]||0)+Math.max(0,ps-inT[id]);delete inT[id]}on.delete(id)};
+[...(L.ev||[])].sort((a,b)=>(a.ps-b.ps)||(a.ts-b.ts)).forEach(x=>{
+if(x.type==='goal'){if(x.side==='us'&&x.pid){if(x.og)d(x.pid).og++;else{d(x.pid).g++;if(x.ast)d(x.ast).a++}}if((x.side==='us')===!!x.og){const gk=[...on].find(i=>isGK(ev,i));if(gk)d(gk).conc++}}
+else if(x.type==='sub'&&x.side==='us'){off(x.out,x.ps);d(x.out).out=true;on.add(x['in']);inT[x['in']]=x.ps;d(x['in'])['in']=true}
+else if(x.type==='yellow'&&x.side==='us'&&x.pid)d(x.pid).y++;
+else if(x.type==='red'&&x.side==='us'&&x.pid){d(x.pid).r=true;off(x.pid,x.ps)}
+else if(x.type==='pen'){if(x.kind==='miss_us'&&x.pid)d(x.pid).pm++;if(x.kind==='save'&&x.pid)d(x.pid).pen++}});
+const end=L.st==='ft'?(L.sEnd||0):lvPs(L);Object.keys(inT).forEach(i=>{tot[i]=(tot[i]||0)+Math.max(0,end-inT[i])});
+Object.keys(D).forEach(i=>{D[i].min=Math.round((tot[i]||0)/60);D[i].y=Math.min(D[i].y,2)});return D}
+/* statistiche salvate: gol, assist, cartellini, cambi e MINUTI GIOCATI */
+async function lvSync(eid,Lo){const ev=S.events.find(x=>x.id===eid),L=Lo||lvOf(eid);if(!ev||!L||!ev.lineup||!db||L.st==='pre')return;
+const D=lvDerive(L,ev),st=JSON.parse(JSON.stringify(ev.stats||{}));
+Object.entries(D).forEach(([id,v])=>{Object.assign(st[id]??={},{g:v.g,a:v.a,og:v.og,pm:v.pm,pen:v.pen,conc:v.conc,y:v.y,r:v.r,out:v.out,'in':v['in'],min:v.min})});
+try{await db.collection('events').doc(eid).update({stats:st})}catch(x){alert('Statistiche non aggiornate: '+x.message+' (pubblica le nuove regole Firestore)')}}
+/* ---- scrittura (transazione, usata da admin e staff) ---- */
+function lvTx(eid,fn,sync){const ev=S.events.find(x=>x.id===eid)||{},r=db.collection('live').doc(eid);let res=null;
+return db.runTransaction(async t=>{const d=await t.get(r),o=d.exists?d.data():lvDef({id:eid,dur:ev.dur});o.ev=o.ev||[];o.cm=o.cm||[];fn(o);o.upd=Date.now();res=JSON.parse(JSON.stringify(o));t.set(r,res)})
+.then(()=>{if(sync&&res&&res.st==='ft')lvSync(eid,res);return res}).catch(x=>{alert('Errore: '+x.message+' (controlla le regole Firestore e di essere Staff/Admin)')})}
+function lvSt(a){const ev=S.events.find(x=>x.id===lvSel);if(!ev)return;if(a==='end'&&!confirm('Terminare la partita?'))return;
+lvTx(lvSel,o=>{const n=Date.now();
+if(a==='start'){o.st='1t';o.t0=n;o.dur=ev.dur||o.dur||35;o.s1=null}
+else if(a==='ht'){o.s1=lvPs(o);o.st='ht';o.hts=n}
+else if(a==='t2'){o.st='2t';o.t2=n;if(o.s1==null)o.s1=lvP(o)}
+else if(a==='end'){o.sEnd=lvPs(o);o.st='ft';o.tE=n}
+else if(a==='reopen'){if(o.t2){o.st='2t';o.t2=n-((o.sEnd||0)-(o.s1==null?lvP(o):o.s1))*1000}else{o.st=o.hts?'ht':'1t';if(o.st==='1t')o.t0=n-(o.sEnd||0)*1000}o.sEnd=null;o.tE=null}},a==='end'||a==='reopen')}
+function lvFix(){const L=lvOf(lvSel);if(!L||!(L.st==='1t'||L.st==='2t'))return;const v=prompt('Minuto di gioco attuale (es. 12). Il cronometro riparte da qui:');if(v===null)return;const X0=Math.round(+v);if(isNaN(X0)||X0<0)return alert('Numero non valido');
+lvTx(lvSel,o=>{const n=Date.now(),P=lvP(o);if(o.st==='1t')o.t0=n-X0*60000;else o.t2=n-Math.max(0,X0*60-P)*1000})}
+/* ---- inserimento eventi ---- */
+const lvMinF=()=>`<details style="margin:8px 0"><summary style="font-size:12px;color:#667">⏱ Modifica minuto</summary><div class=row><div style="flex:1"><label>Minuto</label><input type=number id=lm value="${lvT.m}" min=0></div><div style="flex:1"><label>Recupero (+)</label><input type=number id=lx value="${lvT.ex}" min=0></div></div></details>`;
+function lvRd(){const L=lvOf(lvSel)||{},m=Math.max(0,+$('#lm').value||0),x=Math.max(0,+$('#lx').value||0);if(m===lvT.m&&x===lvT.ex)return lvT;return{m,ex:x,ps:lvPsFrom(L,m,x)}}
+const lvSd=ev=>`<label>Squadra</label><select id=lsd onchange="lvTg()"><option value=us>${e(S.team.name)}</option><option value=opp>${e(ev.opp||'Avversari')}</option></select>`;
+function lvAdd(k){const ev=S.events.find(x=>x.id===lvSel),L=lvOf(lvSel)||lvDef(ev);if(L.st==='pre')return alert('Avvia prima la partita');lvT=lvM(L);
+const on=lvPool(L,ev),mt=`<p>⏱ Minuto <b>${lvMin(lvT)}</b> (preso in automatico)</p>`,ok=`<div class=row><button class=b onclick="lvSave('${k}')">Conferma</button><button class="b g" onclick="X()">Annulla</button></div>`;let h='';
+if(k==='goal')h=`<h3>⚽ Gol</h3>${mt}${lvSd(ev)}<label>Tipo di gol</label><select id=lgt onchange="lvTg()">${GT.map(g=>`<option>${e(g)}</option>`).join('')}</select><div id=lus><label id=lpl>Marcatore</label><select id=lp>${lvOpt(on,'','— scegli —')}</select><div id=lal><label>Assist (facoltativo)</label><select id=la>${lvOpt(on,'','— nessuno —')}</select></div></div><div id=lop style="display:none"><label>Marcatore avversario (numero/nome, facoltativo)</label><input id=ln></div>${lvMinF()}${ok}`;
+if(k==='sub'){const o=lvSlots(L,ev),onS=new Set(o.s),bn=ids(ev).filter(id=>!onS.has(id)&&!o.red.has(id)&&pl(id));if(!bn.length&&ev.lineup)return alert('Nessun giocatore in panchina: inserisci la panchina dalla sezione Formazione.');
+h=`<h3>🔁 Sostituzione</h3>${mt}${lvSd(ev)}<div id=lus><label>Esce</label><select id=lo>${lvOpt(on,'','— chi esce —')}</select><label>Entra</label><select id=li>${lvOpt(bn.length?bn:S.players.map(p=>p.id).filter(i=>!onS.has(i)),'','— chi entra —')}</select></div><div id=lop style="display:none"><label>Esce (numero/nome)</label><input id=lon><label>Entra (numero/nome)</label><input id=lin></div>${lvMinF()}${ok}`}
+if(k==='yellow'||k==='red')h=`<h3>${k==='yellow'?'🟨 Cartellino giallo':'🟥 Cartellino rosso'}</h3>${mt}${lvSd(ev)}<div id=lus><label>Giocatore</label><select id=lp>${lvOpt(on,'','— scegli —')}</select></div><div id=lop style="display:none"><label>Giocatore avversario (numero/nome, facoltativo)</label><input id=ln></div><label>Motivo (facoltativo)</label><input id=lnt>${lvMinF()}${ok}`;
+if(k==='pen'){const gk=on.find(i=>isGK(ev,i))||'';h=`<h3>🧤 Rigore</h3>${mt}<label>Cosa è successo?</label><select id=lk onchange="lvTg()"><option value=save>Rigore avversario PARATO</option><option value=miss_us>Nostro rigore sbagliato</option><option value=miss_opp>Rigore avversario sbagliato (fuori/palo)</option></select><div id=lus><label id=lpl>Portiere</label><select id=lp>${lvOpt(on,gk,'— scegli —')}</select></div>${lvMinF()}${ok}`}
+M(h);lvTg()}
+function lvTg(){const sd=($('#lsd')||{}).value,k=($('#lk')||{}).value,og=($('#lgt')||{}).value==='Autogol';
+if($('#lsd')){$('#lus').style.display=sd==='us'?'':'none';$('#lop').style.display=sd==='opp'?'':'none'}
+if($('#lal'))$('#lal').style.display=og?'none':'';if($('#lpl')&&$('#lgt'))$('#lpl').textContent=og?"Autore dell'autogol":'Marcatore';
+if($('#lk')){$('#lus').style.display=k==='miss_opp'?'none':'';$('#lpl').textContent=k==='save'?'Portiere':'Chi ha sbagliato'}}
+function lvSave(k){const t=lvRd(),b={id:uid(),ts:Date.now(),m:t.m,ex:t.ex,ps:t.ps},v=i=>($(i)||{}).value||'';let o;
+if(k==='goal'){const sd=v('#lsd'),gt=v('#lgt');o={...b,type:'goal',side:sd,gt,og:gt==='Autogol',pid:'',ast:'',name:''};if(sd==='us'){o.pid=v('#lp');if(!o.pid)return alert('Scegli il giocatore');if(!o.og){o.ast=v('#la');if(o.ast===o.pid)o.ast=''}}else o.name=v('#ln').trim()}
+else if(k==='sub'){const sd=v('#lsd');o={...b,type:'sub',side:sd,out:'',['in']:'',nout:'',nin:''};if(sd==='us'){o.out=v('#lo');o['in']=v('#li');if(!o.out||!o['in']||o.out===o['in'])return alert('Scegli chi esce e chi entra')}else{o.nout=v('#lon').trim();o.nin=v('#lin').trim()}}
+else if(k==='yellow'||k==='red'){const sd=v('#lsd');o={...b,type:k,side:sd,pid:'',name:'',note:v('#lnt').trim()};if(sd==='us'){o.pid=v('#lp');if(!o.pid)return alert('Scegli il giocatore')}else o.name=v('#ln').trim()}
+else if(k==='pen'){const kd=v('#lk');o={...b,type:'pen',kind:kd,side:kd==='miss_opp'?'opp':'us',pid:kd==='miss_opp'?'':v('#lp')};if(kd!=='miss_opp'&&!o.pid)return alert('Scegli il giocatore')}
+X();lvTx(lvSel,L=>{L.ev.push(o);if(o.type==='yellow'&&o.side==='us'&&L.ev.filter(x=>x.type==='yellow'&&x.pid===o.pid).length>=2)L.ev.push({...o,id:uid(),ts:Date.now()+1,type:'red',note:'2° giallo'})},true)}
+function lvDesc(x){const nm=id=>{const p=pl(id);return p?e(p.name):'?'};return x.type==='goal'?`⚽ ${x.og?'Autogol':'Gol'} ${x.side==='us'?nm(x.pid):e(x.name||'avversari')}`:x.type==='sub'?'🔁 Sostituzione':x.type==='yellow'?'🟨 Giallo':x.type==='red'?'🟥 Rosso':'🧤 Rigore'}
+function lvEd(id){const L=lvOf(lvSel),x=L&&(L.ev||[]).find(y=>y.id===id);if(!x)return;M(`<h3>Modifica evento</h3><p>${lvDesc(x)}</p><div class=row><div style="flex:1"><label>Minuto</label><input type=number id=em value="${x.m}" min=0></div><div style="flex:1"><label>Recupero (+)</label><input type=number id=ex2 value="${x.ex||0}" min=0></div></div><div class=row><button class=b onclick="lvEdS('${id}')">Salva</button><button class="b r" onclick="lvEdD('${id}')">Elimina</button><button class="b g" onclick="X()">Annulla</button></div>`)}
+function lvEdS(id){const m=Math.max(0,+$('#em').value||0),ex=Math.max(0,+$('#ex2').value||0);X();lvTx(lvSel,L=>{const x=L.ev.find(y=>y.id===id);if(x){x.m=m;x.ex=ex;x.ps=lvPsFrom(L,m,ex)}},true)}
+function lvEdD(id){if(!confirm('Eliminare questo evento?'))return;X();lvTx(lvSel,L=>{L.ev=L.ev.filter(y=>y.id!==id);L.ev=L.ev.filter(y=>!(y.type==='red'&&y.note==='2° giallo'&&!L.ev.some(z=>z.type==='yellow'&&z.pid===y.pid)))},true)}
+/* ---- commenti ---- */
+function lvCmAdd(){const t=$('#lvct').value.trim();if(!t)return;const ph=$('#lvcp').value;lvDraft='';$('#lvct').value='';lvTx(lvSel,L=>{L.cm.push({id:uid(),ts:Date.now(),ph,text:t,by:me})})}
+function lvCmE(id){const L=lvOf(lvSel),c=L&&(L.cm||[]).find(y=>y.id===id);if(!c)return;M(`<h3>Modifica commento</h3><textarea id=lce rows=5 style="width:100%;padding:9px;border:1px solid #c8cfdd;border-radius:8px;font-size:15px;font-family:inherit">${e(c.text)}</textarea><div class=row><button class=b onclick="lvCmS('${id}')">Salva</button><button class="b r" onclick="lvCmD('${id}')">Elimina</button><button class="b g" onclick="X()">Annulla</button></div>`)}
+function lvCmS(id){const t=$('#lce').value.trim();if(!t)return;X();lvTx(lvSel,L=>{const c=L.cm.find(y=>y.id===id);if(c)c.text=t})}
+function lvCmD(id){if(!confirm('Eliminare il commento?'))return;X();lvTx(lvSel,L=>{L.cm=L.cm.filter(y=>y.id!==id)})}
+/* ---- WhatsApp ---- */
+function lvWA(id){const L=lvOf(id)||{};M(`<h3>💬 Diretta con videochiamata WhatsApp</h3><ol style="font-size:13px;padding-left:18px"><li>Apri WhatsApp → scheda <b>Chiamate</b> → <b>Crea link chiamata</b></li><li>Scegli <b>Video</b> e copia il link</li><li>Incollalo qui sotto e premi Salva</li><li>Entra tu per primo nella chiamata e inquadra la partita. Genitori e giocatori entrano dal pulsante “Diretta WhatsApp” che comparirà nel Live.</li></ol><label>Link della chiamata</label><input id=lw value="${e(L.wa||'')}" placeholder="https://call.whatsapp.com/video/..."><div class=row><button class=b onclick="lvWAS('${id}')">Salva</button>${L.wa?`<button class="b r" onclick="lvWAS('${id}',1)">Rimuovi</button>`:''}<button class="b g" onclick="X()">Annulla</button></div>`)}
+function lvWAS(id,rm){const u=rm?'':$('#lw').value.trim();if(u&&!/^https:\/\/(call\.whatsapp\.com|chat\.whatsapp\.com|wa\.me)\//i.test(u))return alert('Incolla il link creato da WhatsApp (inizia con https://call.whatsapp.com/)');X();lvTx(id,o=>{o.wa=u})}
+/* ---- ripresa video (WebRTC, segnalazione via Firestore) ---- */
+function lvVid(stream,mine,txt){let b=$('#lvv');if(!b){b=document.createElement('div');b.id='lvv';document.body.appendChild(b)}
+b.innerHTML=`<video playsinline autoplay muted></video><div class=vb>${mine?'<b>🔴 Stai trasmettendo</b>':'<button id=lvmu onclick="lvMute()">🔇</button>'}<button onclick="$('#lvv').classList.toggle('big')">⤢</button><button onclick="${mine?'camStop()':'camClose()'}">✕</button></div><div class=vm id=lvvm>${txt||''}</div>`;
+const v=b.querySelector('video');if(stream){v.srcObject=stream;v.play().catch(er)}return v}
+function lvMute(){const v=$('#lvv video');if(!v)return;v.muted=!v.muted;$('#lvmu').textContent=v.muted?'🔇':'🔊'}
+async function camStart(eid){if(BC)return;if(!navigator.mediaDevices||!window.RTCPeerConnection)return alert('Questo browser non supporta la ripresa video.');if(!auth||!auth.currentUser)return alert('Accedi per usare la fotocamera.');
+let s;try{s=await navigator.mediaDevices.getUserMedia({video:{facingMode:{ideal:'environment'},width:{ideal:960},height:{ideal:540},frameRate:{ideal:24,max:30}},audio:true})}catch(x){try{s=await navigator.mediaDevices.getUserMedia({video:true,audio:false})}catch(y){return alert('Impossibile aprire la fotocamera: '+y.message)}}
+const rt=db.collection('live').doc(eid).collection('rtc');BC={eid,s,pcs:{},rt};try{BC.wl=await navigator.wakeLock.request('screen')}catch(_){}
+lvVid(s,true);const hb=()=>rt.doc('_bc').set({on:true,by:me,t:Date.now()}).catch(er);await hb();BC.hb=setInterval(hb,20000);
+await lvTx(eid,o=>{o.cam={on:true,by:me}});
+BC.un=rt.onSnapshot(sn=>sn.docChanges().forEach(c=>{if(c.type==='removed'||c.doc.id==='_bc')return;const d=c.doc.data(),o=BC&&BC.pcs[c.doc.id];if(d.req&&(!o||o.req!==d.req))bcOffer(c.doc.id,d.req)}),er);R()}
+async function bcOffer(v,req){const b=BC;if(!b)return;const r=b.rt.doc(v),old=b.pcs[v];if(old){try{old.un&&old.un();old.pc.close()}catch(_){}}
+if(!old&&Object.keys(b.pcs).length>=8){r.update({busy:true}).catch(er);return}
+const pc=new RTCPeerConnection({iceServers:lvIce()}),o={pc,req};b.pcs[v]=o;b.s.getTracks().forEach(t=>pc.addTrack(t,b.s));
+const buf=[];let ok=false;const sd=c=>r.update({bc:firebase.firestore.FieldValue.arrayUnion(JSON.stringify(c))}).catch(er);
+pc.onicecandidate=ev=>{if(!ev.candidate)return;ok?sd(ev.candidate):buf.push(ev.candidate)};
+try{const off=await pc.createOffer();await pc.setLocalDescription(off);await r.update({offer:{type:off.type,sdp:off.sdp},answer:null,bc:[],vc:[],busy:false})}catch(x){er(x);return}
+ok=true;buf.forEach(sd);const seen=new Set();
+o.un=r.onSnapshot(async s=>{const d=s.data();if(!d||d.req!==req||b.pcs[v]!==o)return;if(d.answer&&pc.signalingState==='have-local-offer'){try{await pc.setRemoteDescription(d.answer)}catch(x){er(x)}}
+if(pc.remoteDescription)(d.vc||[]).forEach(c=>{if(!seen.has(c)){seen.add(c);pc.addIceCandidate(JSON.parse(c)).catch(er)}})},er)}
+async function camStop(){if(!BC)return;const b=BC;BC=null;clearInterval(b.hb);b.un&&b.un();Object.values(b.pcs).forEach(x=>{try{x.un&&x.un();x.pc.close()}catch(_){}});b.s.getTracks().forEach(t=>t.stop());try{b.wl&&b.wl.release()}catch(_){}
+b.rt.doc('_bc').set({on:false,t:Date.now()}).catch(er);lvTx(b.eid,o=>{o.cam={on:false}});const v=$('#lvv');if(v)v.remove();R()}
+function camClose(){if(VW){const w=VW;VW=null;clearTimeout(w.to);w.un&&w.un();try{w.pc.close()}catch(_){}w.r.delete().catch(er)}const v=$('#lvv');if(v&&!BC)v.remove()}
+async function camWatch(eid){if(!auth||!auth.currentUser)return alert('Per guardare il video devi accedere con il tuo utente: la ripresa non è pubblica.');if(!window.RTCPeerConnection)return alert('Browser non compatibile con il video in diretta.');camClose();
+const rt=db.collection('live').doc(eid).collection('rtc'),u=auth.currentUser.uid,r=rt.doc(u);lvVid(null,false,'⏳ Connessione al video…');
+let bc=null;try{bc=(await rt.doc('_bc').get()).data()}catch(x){er(x)}
+if(!bc||!bc.on||Date.now()-bc.t>75000){const m=$('#lvvm');if(m)m.textContent='La ripresa non è attiva in questo momento.';setTimeout(camClose,3500);return}
+const req=Date.now(),pc=new RTCPeerConnection({iceServers:lvIce()}),seen=new Set(),w=VW={pc,r,got:false};
+pc.ontrack=ev=>{const v=$('#lvv video');if(v&&v.srcObject!==ev.streams[0]){v.srcObject=ev.streams[0];v.play().catch(er);const m=$('#lvvm');if(m)m.textContent=''}};
+pc.onicecandidate=ev=>{if(ev.candidate)r.update({vc:firebase.firestore.FieldValue.arrayUnion(JSON.stringify(ev.candidate))}).catch(er)};
+try{await r.set({req,uid:u,user:me,offer:null,answer:null,bc:[],vc:[],busy:false})}catch(x){return alert('Errore: '+x.message+' (aggiorna le regole Firestore)')}
+w.un=r.onSnapshot(async s=>{const d=s.data();if(!d||d.req!==req||VW!==w)return;if(d.busy){const m=$('#lvvm');if(m)m.textContent='Troppi spettatori collegati: usa la diretta WhatsApp.';return}
+if(d.offer&&!w.got){w.got=true;try{await pc.setRemoteDescription(d.offer);const a=await pc.createAnswer();await pc.setLocalDescription(a);await r.update({answer:{type:a.type,sdp:a.sdp}})}catch(x){er(x)}}
+if(pc.remoteDescription)(d.bc||[]).forEach(c=>{if(!seen.has(c)){seen.add(c);pc.addIceCandidate(JSON.parse(c)).catch(er)}})},er);
+w.to=setTimeout(()=>{const v=$('#lvv video'),m=$('#lvvm');if(VW===w&&v&&!v.srcObject&&m)m.textContent='Non riesco a collegarmi (rete). Prova la diretta WhatsApp.'},20000)}
+/* ---- animazioni per chi guarda ---- */
+function lvFx(h,c){let o=$('#lvfx');if(!o){o=document.createElement('div');o.id='lvfx';document.body.appendChild(o)}o.innerHTML=`<div class="fx ${c||''}">${h}</div>`;o.className='on';clearTimeout(lvFx.t);lvFx.t=setTimeout(()=>{o.className=''},4300)}
+const lvCf=()=>Array.from({length:16},()=>`<span class=cf style="left:${Math.round(Math.random()*100)}%;animation-delay:${(Math.random()*.9).toFixed(2)}s">${['⚽','🎉','✨','🔵'][Math.floor(Math.random()*4)]}</span>`).join('');
+function lvFxEv(x,eid){const ev=S.events.find(y=>y.id===eid);if(!ev)return;const nm=id=>{const p=pl(id);return p?e(p.name):''},mn=lvMin(x),who=x.side==='us'?nm(x.pid):e(x.name||ev.opp||'Avversari'),av=(id,s)=>x.side==='us'?lvAv(id,s):lvOA(ev,s);
+if(x.type==='goal'){const us=(x.side==='us')!==!!x.og;lvFx(`${us?lvCf():''}<div class=t>${us?'GOOOL!':'GOL AVVERSARIO'}</div>${av(x.pid,84)}<div class=n>${x.og?'Autogol · ':''}${who}</div><div class=s>${[x.ast?'Assist: '+nm(x.ast):'',e(x.gt),mn].filter(Boolean).join(' · ')}</div>`,us?'':'opp')}
+else if(x.type==='sub')lvFx(`<div class=t>CAMBIO</div>${x.side==='us'?`<span class=ar style="color:#4cd964">▲</span>${lvAv(x['in'],64)}<span class=ar style="color:#ff6b6b">▼</span>${lvAv(x.out,64)}<div class=n>${nm(x['in'])} <small>per</small> ${nm(x.out)}</div>`:`<div class=n>${e(ev.opp||'Avversari')}</div><div class=s>${e(x.nin||'')} per ${e(x.nout||'')}</div>`}<div class=s>${mn}</div>`)
+else if(x.type==='yellow'||x.type==='red')lvFx(`<div class=t><span class=cd style="background:${x.type==='yellow'?'#ffd600':'#e53935'}"></span>${x.type==='yellow'?'AMMONIZIONE':'ESPULSIONE'}</div>${av(x.pid,64)}<div class=n>${who}</div><div class=s>${[x.note?e(x.note):'',mn].filter(Boolean).join(' · ')}</div>`,x.type==='yellow'?'yc':'rc')
+else if(x.type==='pen')lvFx(`<div class=t>${x.kind==='save'?'RIGORE PARATO!':'RIGORE SBAGLIATO'}</div>${x.kind==='miss_opp'?lvOA(ev,64):lvAv(x.pid,64)}<div class=n>${x.pid?nm(x.pid):e(ev.opp||'')}</div><div class=s>${mn}</div>`)}
+function lvFxSt(st,eid){const L=lvOf(eid),sc=L?lvScore(L):{u:0,o:0},t={'1t':"🏁 FISCHIO D'INIZIO",ht:'⏸ INTERVALLO','2t':'▶ INIZIA IL 2° TEMPO',ft:'🏁 FINE PARTITA'}[st];if(!t)return;lvFx(`<div class=t>${t}</div>${st==='ht'||st==='ft'?`<div class=n>${sc.u} - ${sc.o}</div>`:''}`)}
+function lvListen(){if(typeof db==='undefined'||!db)return;db.collection('live').onSnapshot(sn=>{S.live={};sn.docs.forEach(d=>{const o=d.data();S.live[d.id]=o;const p=lvPrev[d.id];
+if(p&&tab==='live'&&lvSel===d.id){const nw=(o.ev||[]).filter(x=>!p.ev.has(x.id));if(nw.length)lvFxEv(nw[nw.length-1],d.id);else if(o.st!==p.st)lvFxSt(o.st,d.id)}
+lvPrev[d.id]={st:o.st,ev:new Set((o.ev||[]).map(x=>x.id))}});dirty()},er)}
+/* ---- schermata Live ---- */
+const LVSVG='<svg viewBox="0 0 116 100" preserveAspectRatio="none"><g fill="none" stroke="#fff" stroke-width=".6" stroke-opacity=".85"><rect x="3" y="3" width="110" height="94"/><line x1="58" y1="3" x2="58" y2="97"/><circle cx="58" cy="50" r="11"/><rect x="3" y="26" width="18" height="48"/><rect x="3" y="38" width="7" height="24"/><rect x="95" y="26" width="18" height="48"/><rect x="106" y="38" width="7" height="24"/><path d="M21 42.9A10 10 0 0 1 21 57.1"/><path d="M95 42.9A10 10 0 0 0 95 57.1"/></g><circle cx="58" cy="50" r="1" fill="#fff"/></svg>';
+function vLive(){if(!lvSel)return vLvL();const ev=S.events.find(x=>x.id===lvSel);if(!ev){lvSel=null;return vLvL()}const L=lvOf(ev.id)||lvDef(ev),mg=isMgr();
+return`<div class=lvtop><button class="b g" onclick="lvSel=null;R()">‹ Partite</button><span>${TYPES[ev.type][0]} · ${ev.date.split('-').reverse().join('/')} ${e(ev.time||'')} ${HA(ev)}</span></div><div class=lvw>${lvSb(ev,L)}${lvField(ev,L)}</div>${lvMedia(ev,L)}${mg?lvCtl(ev,L):''}<div class=lvtabs><button class="${lvTab==='cr'?'on':''}" onclick="lvTab='cr';R()">📰 Cronaca</button><button class="${lvTab==='fo'?'on':''}" onclick="lvTab='fo';R()">👕 Formazioni</button></div>${lvTab==='cr'?lvCron(ev,L,mg):lvFo(ev,L)}`}
+function vLvL(){const mg=isMgr();let A=S.events.filter(x=>x.type!=='all');if(!mg)A=A.filter(x=>lvOf(x.id)||x.date===today());
+A.sort((a,b)=>(lvAct(lvOf(b.id))?1:0)-(lvAct(lvOf(a.id))?1:0)||b.date.localeCompare(a.date));
+if(!A.length)return msg(mg?'Aggiungi prima una partita dal Calendario.':'Nessuna partita in diretta o già giocata al momento.');
+return(mg?'<p style="font-size:12px;color:#667">Staff / Admin: scegli la partita e premi “Inizia partita” per avviare il Live.</p>':'')+A.map(x=>{const l=lvOf(x.id),sd=lvSides(x),sc=l&&l.st!=='pre'?lvScore(l):null,bd=lvAct(l)?`<span class=lvbd>🔴 ${l.st==='ht'?'INTERVALLO':'IN DIRETTA'}</span>`:l&&l.st==='ft'?'<small>Terminata</small>':'<small>Non iniziata</small>';
+return`<div class=card style="border-color:${lvAct(l)?'#e53935':TYPES[x.type][1]}" onclick="lvSel='${x.id}';R()"><div class=row style="justify-content:space-between"><b>${TYPES[x.type][0]}</b>${bd}</div>${x.date.split('-').reverse().join('/')} ${e(x.time||'')} ${HA(x)}<div style="margin-top:4px;font-size:15px"><b>${e(sd.l.name)}</b> ${sc?`<b style="color:#1e3a8a">${sd.l.us?sc.u:sc.o} - ${sd.r.us?sc.u:sc.o}</b>`:'vs'} <b>${e(sd.r.name)}</b></div></div>`}).join('')}
+const lvRes=x=>{const l=lvOf(x.id);if(!l||l.st==='pre'||x.type==='all')return'';const sd=lvSides(x),sc=lvScore(l);return`<br><b>Risultato${l.st==='ft'?'':' (live)'}: ${sd.l.us?sc.u:sc.o} - ${sd.r.us?sc.u:sc.o}</b>`};
+function lvSb(ev,L){const sd=lvSides(ev),sc=lvScore(L),a=sd.l.us?sc.u:sc.o,b=sd.r.us?sc.u:sc.o,bump=(L.ev||[]).some(x=>x.type==='goal'&&Date.now()-x.ts<4500),tm=t=>`<div class=tm>${lvLg(t,34)}<small>${e(t.name)}</small></div>`;
+return`<div class="lvsb${bump?' bump':''}">${tm(sd.l)}<div class=md><div class=sc>${L.st==='pre'?'– –':a+' - '+b}</div><div class=clk id=lvclk>${e(lvClk(L))}</div><div class=stl>${lvSTL[L.st]}</div></div>${tm(sd.r)}</div>`}
+function lvTk(id,x,y,sz,cw,D,red){const p=pl(id);if(!p)return`<div class=tk style="left:${x}%;top:${y}px;width:${cw}px"><span class=lva style="width:${sz}px;height:${sz}px;opacity:.45">?</span></div>`;
+const d=D[id]||{},fs=Math.max(9,Math.min(12,Math.round(sz/4)));
+return`<div class="tk${red.has(id)?' rd':''}" style="left:${x}%;top:${y}px;width:${cw}px"><span class=lva style="width:${sz}px;height:${sz}px;font-size:${Math.round(sz*.4)}px;${p.photo?`background-image:url(${p.photo})`:''}">${p.photo?'':e(p.num||'👤')}${p.num&&p.photo?`<em class=nb>${e(p.num)}</em>`:''}${d['in']?'<em class=sbi>▲</em>':''}</span><b style="font-size:${fs}px">${e(p.last||p.name.split(' ')[0])}</b><span class=ic style="font-size:${fs}px">${icons({g:d.g||0,og:d.og||0,y:d.y||0,r:d.r},false)}</span></div>`}
+function lvField(ev,L){const lu=ev.lineup;if(!lu||!lu.slots.some(Boolean))return`<div class=lvempty>⚠️ Formazione non ancora inserita</div>`;
+const W=Math.max(280,Math.min(innerWidth,760)-24),H=Math.round(W*.86),top=Math.round(H*.2),area=H-top-10,rows=rowsOf(lu.mod),n=rows.length,mx=Math.max(...rows.map(r=>r.length)),sz=Math.max(28,Math.min(62,Math.floor(area/mx)-17)),cw=Math.min(84,Math.floor(W*.82/(n-1))-2),{s,red}=lvSlots(L,ev),D=lvDerive(L,ev);let k=0,h='';
+rows.forEach((r,i)=>{const x=(9+i*(82/(n-1))).toFixed(1);r.forEach((lb,j)=>{const id=s[k++],y=Math.round(top+(j+.5)*area/r.length);h+=lvTk(id,x,y,sz,cw,D,red)})});
+return`<div class=lvwp><div class=lvf style="height:${H}px"><div class=lvg>${LVSVG}</div>${h}</div></div>`}
+function lvMedia(ev,L){const mg=isMgr(),b=[],mine=BC&&BC.eid===ev.id;
+if(L.cam&&L.cam.on&&!mine)b.push(`<button class="b lvr" onclick="camWatch('${ev.id}')">🎥 Guarda il video</button>`);
+if(L.wa)b.push(`<a class="b lvw2" href="${e(L.wa)}" target=_blank rel=noopener>💬 Diretta WhatsApp</a>`);
+if(mg){b.push(mine?`<button class="b r" onclick="camStop()">⏹ Ferma la ripresa</button>`:`<button class="b g" onclick="camStart('${ev.id}')">📹 Riprendi la partita</button>`);b.push(`<button class="b g" onclick="lvWA('${ev.id}')">💬 ${L.wa?'Modifica':'Imposta'} diretta WhatsApp</button>`)}
+return b.length?`<div class=row style="margin:8px 0">${b.join('')}</div>`:''}
+function lvCtl(ev,L){const st=L.st,id=ev.id;let a='';
+if(st==='pre')a=`<button class="b lvg" onclick="lvSt('start')">▶ Inizia partita</button>`;
+if(st==='1t')a=`<button class=b onclick="lvSt('ht')">⏸ Intervallo</button><button class="b r" onclick="lvSt('end')">⏹ Termina</button>`;
+if(st==='ht')a=`<button class="b lvg" onclick="lvSt('t2')">▶ Inizia 2° tempo</button><button class="b r" onclick="lvSt('end')">⏹ Termina</button>`;
+if(st==='2t')a=`<button class="b r" onclick="lvSt('end')">⏹ Termina partita</button>`;
+if(st==='ft')a=`<button class="b g" onclick="lvSt('reopen')">↩ Riapri la partita</button>`;
+const evb=st!=='pre'?`<div class=row><button class=b onclick="lvAdd('goal')">⚽ Gol</button><button class=b onclick="lvAdd('sub')">🔁 Cambio</button><button class=b onclick="lvAdd('yellow')">🟨 Giallo</button><button class=b onclick="lvAdd('red')">🟥 Rosso</button><button class=b onclick="lvAdd('pen')">🧤 Rigore</button></div>`:'';
+const ex=`<div class=row>${st==='1t'||st==='2t'?`<button class="b g" onclick="lvFix()">⏱ Correggi tempo</button>`:''}${st!=='pre'?`<button class="b g" onclick="lvSync('${id}')">📊 Aggiorna statistiche</button>`:''}</div>`,dp={pre:'pre','1t':'ht',ht:'ht','2t':'post',ft:'post'}[st];
+return`<div class=lvc><b>🎛 Controllo partita</b> <small style="color:#667">(solo staff e admin · il minuto è automatico)</small><div class=row style="margin-top:6px">${a}</div>${evb}${ex}<label>Commento testuale</label><textarea id=lvct rows=2 oninput="lvDraft=this.value" style="width:100%;padding:9px;border:1px solid #c8cfdd;border-radius:8px;font-size:15px;font-family:inherit" placeholder="Scrivi un commento…">${e(lvDraft)}</textarea><div class=row><select id=lvcp style="width:auto;margin:0">${[['pre','Pre-partita'],['ht','Intervallo'],['post','Post-partita']].map(([k,v])=>`<option value=${k} ${k===dp?'selected':''}>${v}</option>`).join('')}</select><button class=b onclick="lvCmAdd()">Pubblica</button></div></div>`}
+function lvEvH(x,ev,mg){const sd=lvSides(ev),cred=x.type==='goal'?(((x.side==='us')!==!!x.og)?'us':'opp'):x.side,left=(cred==='us')===!!sd.l.us,nm=id=>{const p=pl(id);return p?e(p.name):'?'},oav=lvOA(ev,36),us=x.side==='us';let av='',t1='',t2='';
+if(x.type==='goal'){av=us?lvAv(x.pid,36):oav;t1=`⚽ <b>${x.og?'Autogol':'Gol'}</b> ${us?nm(x.pid):e(x.name||'')}`;t2=[x.ast?'🅰 '+nm(x.ast):'',x.og?'':e(x.gt)].filter(Boolean).join(' · ')}
+else if(x.type==='sub'){av=us?`<span class=sw>${lvAv(x['in'],34)}${lvAv(x.out,34)}</span>`:oav;t1=us?`🔁 <span class=gi>▲ ${nm(x['in'])}</span><br><span class=ro>▼ ${nm(x.out)}</span>`:`🔁 <span class=gi>▲ ${e(x.nin||'')}</span><br><span class=ro>▼ ${e(x.nout||'')}</span>`}
+else if(x.type==='yellow'||x.type==='red'){av=us?lvAv(x.pid,36):oav;t1=`${x.type==='yellow'?'🟨':'🟥'} <b>${us?nm(x.pid):e(x.name||'Avversario')}</b>`;t2=e(x.note||'')}
+else{av=x.kind==='miss_opp'?oav:lvAv(x.pid,36);t1=x.kind==='save'?`🧤 <b>Rigore parato</b> ${nm(x.pid)}`:x.kind==='miss_us'?`❌ <b>Rigore sbagliato</b> ${nm(x.pid)}`:'❌ <b>Rigore sbagliato</b> (avversari)'}
+const c=`<div class="ce ${us?'us':'op'}">${av}<div class=ct>${t1}${t2?`<br><small>${t2}</small>`:''}</div>${mg?`<button class=lve onclick="lvEd('${x.id}')">✎</button>`:''}</div>`;
+return`<div class=cr><div class=c1>${left?c:''}</div><div class=cm>${lvMin(x)}</div><div class=c2>${left?'':c}</div></div>`}
+function lvCron(ev,L,mg){const P=lvP(L)/60,A=[],sd=lvSides(ev);
+(L.ev||[]).forEach(x=>A.push({k:x.m+(x.ex||0)/100,t:x.ts,x}));
+(L.cm||[]).forEach(c=>A.push({k:c.ph==='pre'?-1:c.ph==='ht'?P+.55:999,t:c.ts,c}));
+if(L.t0&&L.st!=='pre')A.push({k:0,t:L.t0,mk:"🏁 Fischio d'inizio"});if(L.hts)A.push({k:P+.5,t:L.hts,mk:'⏸ Intervallo'});if(L.t2)A.push({k:P+.6,t:L.t2,mk:'▶ Inizio secondo tempo'});
+if(L.st==='ft'&&L.tE){const s=lvScore(L);A.push({k:P*2+.5,t:L.tE,mk:`🏁 Fine partita · ${sd.l.us?s.u:s.o} - ${sd.r.us?s.u:s.o}`})}
+A.sort((a,b)=>a.k-b.k||a.t-b.t);
+if(!A.length)return msg('La cronaca comparirà qui appena inizia la partita.');
+const hd=t=>`<div>${lvLg(t,22)}<span>${e(t.name)}</span></div>`;
+return`<div class=crh>${hd(sd.l)}<div></div>${hd(sd.r)}</div><div class=cl>${A.map(i=>i.mk?`<div class=crm>${i.mk}</div>`:i.c?`<div class=crc><span class=ph>${{pre:'Pre-partita',ht:'Intervallo',post:'Post-partita'}[i.c.ph]||'Commento'}</span> ${e(i.c.text)}<br><small style="color:#889">${fdt(i.c.ts)}${i.c.by?' · '+e(i.c.by):''}</small>${mg?` <button class=lve onclick="lvCmE('${i.c.id}')">✎</button>`:''}</div>`:lvEvH(i.x,ev,mg)).join('')}</div>`}
+function lvFo(ev,L){const lu=ev.lineup;if(!lu||!lu.slots.some(Boolean))return msg('Formazione non ancora inserita.');
+const D=lvDerive(L,ev),rows=rowsOf(lu.mod),subs=(L.ev||[]).filter(x=>x.type==='sub'&&x.side==='us'),st=[];let k=0;rows.forEach(r=>r.forEach(lb=>st.push({id:lu.slots[k++],lb})));
+const chip=(id,lb)=>{const p=pl(id);if(!p)return'';const d=D[id]||{},so=subs.filter(x=>x.out===id).map(x=>`<span class=ro>▼ ${lvMin(x)}</span>`),si=subs.filter(x=>x['in']===id).map(x=>`<span class=gi>▲ ${lvMin(x)}</span>`);
+return`<div class=fch>${lvAv(id,44)}<div><b>${p.num?'#'+e(p.num)+' ':''}${e(p.name)}</b><br><small>${[lb,d.min&&L.st!=='pre'?'⏱ '+d.min+"'":''].filter(Boolean).join(' · ')}</small><br><span class=ic>${icons({g:d.g||0,og:d.og||0,y:d.y||0,r:d.r},false)}</span> ${[...si,...so].join(' ')}</div></div>`};
+const bn=(lu.bench||[]).filter(id=>pl(id));
+return`<h4>Titolari (11)</h4><div class=fog>${st.map(s=>chip(s.id,s.lb)).join('')}</div><h4>Panchina</h4>${bn.length?`<div class=fog>${bn.map(id=>chip(id,'')).join('')}</div>`:msg('Panchina non inserita')}`}
+setInterval(()=>{if(tab!=='live'||!lvSel)return;const L=lvOf(lvSel),el=$('#lvclk');if(L&&el&&(L.st==='1t'||L.st==='2t'))el.textContent=lvClk(L)},1000);
+addEventListener('resize',()=>{if(tab==='live'&&lvSel&&!busy())R()});
+</script>
+<script>
+const V='1.23',K='osm_v1',$=q=>document.querySelector(q),p2=n=>String(n).padStart(2,'0'),uid=()=>Math.random().toString(36).slice(2,9);
 const e=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const def=()=>({team:{name:'Oratorio San Michele',logo:''},players:[],events:[],users:[],votes:{},mvpv:{},notices:[],rd:{},rdAll:{},rdOk:false});
 let S=def();
@@ -126,14 +395,17 @@ const evs=S.events.filter(x=>x.date===cal.d).sort((a,b)=>a.time.localeCompare(b.
 return`<div class=row style="justify-content:space-between"><button class="b g" onclick="mv(-1)">‹</button><b>${MESI[cal.m]} ${cal.y}</b><button class="b g" onclick="mv(1)">›</button></div>
 <div class=grid style="margin-top:8px">${['L','M','M','G','V','S','D'].map(x=>`<div class=hd>${x}</div>`).join('')}${c}</div>
 <div class=row style="font-size:11px;margin:8px 0">${Object.values(TYPES).map(t=>`<span><i style="display:inline-block;width:9px;height:9px;border-radius:50%;background:${t[1]}"></i> ${t[0]}</span>`).join('')}</div>
-<h4>${cal.d.split('-').reverse().join('/')}</h4>${evs.map(x=>`<div class=card style="border-color:${TYPES[x.type][1]}"><b style="color:${TYPES[x.type][1]}">${TYPES[x.type][0]}</b> · ${e(x.time)}<br>${x.opp?'vs '+e(x.opp)+(HA(x)?' · '+HA(x):'')+'<br>':''}${e(x.place)}
+<h4>${cal.d.split('-').reverse().join('/')}</h4>${evs.map(x=>`<div class=card style="border-color:${TYPES[x.type][1]}"><b style="color:${TYPES[x.type][1]}">${TYPES[x.type][0]}</b> · ${e(x.time)}<br>${x.opp?'vs '+e(x.opp)+(HA(x)?' · '+HA(x):'')+'<br>':''}${e(x.place)}${lvRes(x)}
 ${admin()?`<div class=row style="margin-top:6px"><button class="b g" onclick="evF('${x.id}')">Modifica</button><button class="b r" onclick="evD('${x.id}')">Elimina</button></div>`:''}</div>`).join('')||msg('Nessun evento')}
 ${admin()?`<button class=b onclick="evF()">+ Aggiungi evento</button>`:''}`}
 function mv(n){cal.m+=n;if(cal.m<0){cal.m=11;cal.y--}if(cal.m>11){cal.m=0;cal.y++}R()}
-function evF(id){const x=S.events.find(y=>y.id===id)||{type:'camp',date:cal.d,time:'15:00',opp:'',place:''};
-M(`<h3>${id?'Modifica':'Nuovo'} evento</h3><label>Tipo</label><select id=f1 onchange="$('#hw').style.display=this.value==='all'?'none':''">${Object.entries(TYPES).map(([k,v])=>`<option value=${k} ${x.type===k?'selected':''}>${v[0]}</option>`).join('')}</select><label>Data</label><input type=date id=f2 value="${x.date}"><label>Orario</label><input type=time id=f3 value="${x.time}"><label>Avversario</label><input id=f4 value="${e(x.opp)}"><label>Luogo</label><input id=f5 value="${e(x.place)}"><div id=hw style="${x.type==='all'?'display:none':''}"><label>Casa / Trasferta</label><select id=f6><option value=casa ${x.ha!=='trasf'?'selected':''}>🏠 In casa</option><option value=trasf ${x.ha==='trasf'?'selected':''}>🚌 In trasferta</option></select></div><div class=row><button class=b onclick="evS('${id||''}')">Salva</button><button class="b g" onclick="X()">Annulla</button></div>`)}
-function evS(id){const o={type:$('#f1').value,date:$('#f2').value,time:$('#f3').value,opp:$('#f4').value,place:$('#f5').value,ha:$('#f1').value==='all'?'':$('#f6').value};if(!o.date)return;
-if(id)Object.assign(S.events.find(y=>y.id===id),o);else S.events.push({id:uid(),...o});cal.d=o.date;save();X();R()}
+let tmpOL=null,tmpHL=null;
+function evF(id){const x=S.events.find(y=>y.id===id)||{type:'camp',date:cal.d,time:'15:00',opp:'',place:''};tmpOL=null;tmpHL=null;
+M(`<h3>${id?'Modifica':'Nuovo'} evento</h3><label>Tipo</label><select id=f1 onchange="$('#hw').style.display=this.value==='all'?'none':''">${Object.entries(TYPES).map(([k,v])=>`<option value=${k} ${x.type===k?'selected':''}>${v[0]}</option>`).join('')}</select><label>Data</label><input type=date id=f2 value="${x.date}"><label>Orario</label><input type=time id=f3 value="${x.time}"><label>Avversario</label><input id=f4 value="${e(x.opp)}"><label>Luogo</label><input id=f5 value="${e(x.place)}"><div id=hw style="${x.type==='all'?'display:none':''}"><label>Casa / Trasferta</label><select id=f6><option value=casa ${x.ha!=='trasf'?'selected':''}>🏠 In casa</option><option value=trasf ${x.ha==='trasf'?'selected':''}>🚌 In trasferta</option></select><label>Durata di ogni tempo (minuti, per il Live)</label><input type=number id=f7 min=10 max=60 value="${x.dur||35}"><label>Logo avversario${x.oppLogo?' (già caricato)':''}</label><input type=file accept="image/*" onchange="img(this,200,'png',d=>tmpOL=d)">${x.oppLogo?`<label style="display:block"><input type=checkbox id=f8 style="width:auto"> Rimuovi logo avversario</label>`:''}<label>Logo della nostra squadra per questa partita${x.ownLogo?' (già caricato)':''} (se vuoto usa quello della società)</label><input type=file accept="image/*" onchange="img(this,200,'png',d=>tmpHL=d)">${x.ownLogo?`<label style="display:block"><input type=checkbox id=f9 style="width:auto"> Rimuovi logo squadra</label>`:''}</div><div class=row><button class=b onclick="evS('${id||''}')">Salva</button><button class="b g" onclick="X()">Annulla</button></div>`)}
+function evS(id){const t=$('#f1').value,o={type:t,date:$('#f2').value,time:$('#f3').value,opp:$('#f4').value,place:$('#f5').value,ha:t==='all'?'':$('#f6').value};if(!o.date)return;if(t!=='all')o.dur=Math.max(10,Math.min(60,+$('#f7').value||35));
+let ev=id?S.events.find(y=>y.id===id):null;if(ev)Object.assign(ev,o);else{ev={id:uid(),...o};S.events.push(ev)}
+if(tmpOL)ev.oppLogo=tmpOL;if(tmpHL)ev.ownLogo=tmpHL;if($('#f8')&&$('#f8').checked)delete ev.oppLogo;if($('#f9')&&$('#f9').checked)delete ev.ownLogo;
+cal.d=o.date;save();X();R()}
 function evD(id){if(confirm('Eliminare?')){S.events=S.events.filter(x=>x.id!==id);save();R()}}
 /* VALUTAZIONI / FORMAZIONE */
 const ids=ev=>{const L=ev.lineup;if(!L)return[];const s=L.slots.filter(Boolean);return[...s,...(L.bench||[]).filter(b=>!s.includes(b))]};
@@ -150,10 +422,9 @@ const ev=S.events.find(x=>x.id===fe);ev.lineup??={mod:'4-4-2',slots:[],bench:[]}
 const ps=[...S.players].sort((a,b)=>a.name.localeCompare(b.name));
 const sl=rows.map(r=>r.map(lb=>{const k=i++;return`<label>${lb}</label><select onchange="setSlot(${k},this.value)"><option value="">— scegli —</option>${ps.map(p=>`<option value=${p.id} ${ev.lineup.slots[k]===p.id?'selected':''}>${e(p.name)}${p.role?' ('+p.role+')':''}</option>`).join('')}</select>`}).join('')).join('');
 const st=ids(ev).map(id=>{const p=pl(id);if(!p)return'';const s=ev.stats[id]??={},gk=isGK(ev,id),vs=Object.values(S.votes[ev.id]||{}).map(u=>parseFloat(u[id])).filter(n=>!isNaN(n)),avg=vs.length?(vs.reduce((a,b)=>a+b,0)/vs.length).toFixed(2):'–';
-const num=(k,l)=>`<div><label>${l}</label><input type=number min=0 value="${s[k]||0}" onchange="setS('${id}','${k}',+this.value)"></div>`,chk=(k,l)=>`<label><input type=checkbox style="width:auto" ${s[k]?'checked':''} onchange="setS('${id}','${k}',this.checked)"> ${l}</label>`;
+const stp=(k,l,mx,bl)=>{const v=bl?(s[k]?1:0):(+s[k]||0);return`<div><label>${l}</label><div class=stp><button class="b g" onclick="stpC('${id}','${k}',-1,${mx},${bl?1:0})">−</button><input type=number inputmode=numeric min=0 max=${mx} value="${v}" onchange="stpV('${id}','${k}',this.value,${mx},${bl?1:0})"><button class="b g" onclick="stpC('${id}','${k}',1,${mx},${bl?1:0})">+</button></div></div>`};
 return`<div class=card><b>${e(p.name)}${gk?' 🧤':''}</b> <span style="float:right" id="fv${id}">Fanta: ${fmt(fanta(ev,id))}</span><br><small>Media utenti: ${avg} (${vs.length} voti)</small>
-<div class=sm><div><label>Voto base${s.auto?' (media utenti)':''}</label><select onchange="setS('${id}','vote',this.value)">${opts(vl(s.vote),s.vote)}</select></div>${num('g','Gol')}${num('a','Assist')}${num('og','Autogol')}${num('pm','Rig. sbagliati')}<div><label>Gialli</label><select onchange="setS('${id}','y',+this.value)">${opts([0,1,2],s.y||0)}</select></div>${gk?num('pen','Rigori parati')+num('conc','Gol subiti'):''}</div>
-<div class=row>${chk('r','Rosso')}${chk('out','Sostituito')}${chk('in','Subentrato')}</div></div>`}).join('');
+<div class=sm2><div><label>Voto base${s.auto?' (media utenti)':''}</label><select onchange="setS('${id}','vote',this.value)">${opts(vl(s.vote),s.vote)}</select></div>${stp('min','Minuti giocati',200)}${stp('g','Gol',30)}${stp('a','Assist',30)}${stp('og','Autogol',10)}${stp('pm','Rig. sbagliati',10)}${stp('y','Gialli',2)}${stp('r','Rosso',1,1)}${stp('out','Sostituito',1,1)}${stp('in','Subentrato',1,1)}${gk?stp('pen','Rigori parati',10)+stp('conc','Gol subiti',30):''}</div></div>`}).join('');
 const bench=ps.filter(p=>!ev.lineup.slots.includes(p.id)).map(p=>`<label style="display:block"><input type=checkbox style="width:auto" ${ev.lineup.bench.includes(p.id)?'checked':''} onchange="setBench('${p.id}',this.checked)"> ${e(p.name)}</label>`).join('');
 return`<button class="b g" onclick="fe=null;R()">‹ Partite</button><h4>${TYPES[ev.type][0]} vs ${e(ev.opp)} ${HA(ev)}</h4><div class=card>${(()=>{const src=S.events.filter(x=>x.id!==ev.id&&x.lineup?.slots.some(Boolean)).sort((a,b)=>b.date.localeCompare(a.date));return src.length?`<label>Copia formazione da una partita precedente</label><select onchange="cpL(this.value)"><option value="">— scegli partita —</option>${src.map(x=>`<option value=${x.id}>${x.date.split('-').reverse().join('/')} · ${TYPES[x.type][0]} vs ${e(x.opp)} (${x.lineup.mod})</option>`).join('')}</select>`:''})()}<label>Modulo</label><select onchange="setMod(this.value)">${MODS.map(m=>`<option ${m===ev.lineup.mod?'selected':''}>${m}</option>`).join('')}</select>${sl}<details ${bo?'open':''} ontoggle="bo=this.open"><summary>Panchina / subentrati (selezione multipla)</summary>${bench||'Nessuno'}</details></div>${ev.lineup.slots.some(Boolean)?'<h4>Anteprima formazione</h4>'+pitchHTML(ev,true):''}${ids(ev).length?'<h4>Voti e statistiche</h4>':''}${st}`}
 const cur=()=>S.events.find(x=>x.id===fe);
@@ -163,6 +434,8 @@ function cpL(id){if(!id)return;const o=S.events.find(x=>x.id===id).lineup,L=cur(
 function setMod(m){const L=cur().lineup;L.mod=m;L.slots=L.slots.slice(0,11);save();R()}
 function setSlot(k,v){const L=cur().lineup;L.slots=Array.from({length:11},(_,i)=>L.slots[i]||'');L.slots[k]=v;if(v)L.slots=L.slots.map((x,i)=>i!==k&&x===v?'':x);L.bench=L.bench.filter(b=>b!==v);save();R()}
 function setBench(id,on){const L=cur().lineup;L.bench=L.bench.filter(b=>b!==id);if(on)L.bench.push(id);save();R()}
+function stpC(id,k,d,mx,bl){const s=cur().stats[id],v=bl?(s[k]?1:0):(+s[k]||0),n=Math.max(0,Math.min(mx,v+d));if(n===v)return;setS(id,k,bl?!!n:n)}
+function stpV(id,k,x,mx,bl){const n=Math.max(0,Math.min(mx,Math.round(+x||0)));setS(id,k,bl?!!n:n)}
 function setS(id,k,v){const ev=cur();ev.stats[id][k]=v;if(k==='vote')ev.stats[id].auto=false;save();const el=$('#fv'+id);if(el)el.textContent='Fanta: '+fmt(fanta(ev,id));if(k!=='vote')R()}
 function fanta(ev,id){const s=ev.stats?.[id];if(!s||s.vote===undefined||s.vote===''||s.vote==='SV')return null;let v=parseFloat(s.vote)+3*(s.g||0)+(s.a||0)-.5*(s.y||0)-(s.r?1:0)-2*(s.og||0)-3*(s.pm||0);
 if(isGK(ev,id)){v-=(s.conc||0);v+=3*(s.pen||0);if(!s.conc&&(ev.lineup.slots.includes(id)||s.in))v+=1}return v}
@@ -174,7 +447,7 @@ const icons=(s,gk)=>(s.g?rep(s.g,'⚽'):'')+(s.og?rep(s.og,RB):'')+(s.a?rep(s.a,
 function cell(ev,id,lb,bn,dg,k){const p=pl(id),at=dg?(bn?`class="pl dg" data-b="${id||''}"`:`class="pl dg" data-k="${k}"`):'class=pl';
 if(!p)return`<div ${at}><div class=c>👤</div><em>${lb}</em></div>`;const s=ev.stats?.[id]||{},pd=!bn||s.in,gk=isGK(ev,id);
 const bd=s.out?'<b class=bd style="background:#c0392b">▼</b>':s.in?'<b class=bd style="background:#2e9e4f">▲</b>':'';
-return`<div ${at}><div class=c style="${p.photo?`background-image:url(${p.photo})`:''}">${p.photo?'':'👤'}${bd}</div><em>${e(p.last||p.name.split(' ')[0])} <span class=ic>${icons(s,gk)}</span></em>${pd?`<span class=v>${s.vote||'–'}</span> <span class=v style="background:#c99a1c;color:#fff">${fmt(fanta(ev,id))}</span>`:'<small class=ng>Non ha giocato</small>'}</div>`}
+return`<div ${at}><div class=c style="${p.photo?`background-image:url(${p.photo})`:''}">${p.photo?'':'👤'}${bd}</div><em>${e(p.last||p.name.split(' ')[0])} <span class=ic>${icons(s,gk)}</span></em>${pd?`<span class=v>${s.vote||'–'}</span> <span class=v style="background:#c99a1c;color:#fff">${fmt(fanta(ev,id))}</span>${s.min?`<small class=ng style="color:#dbe7ff">⏱ ${s.min}'</small>`:''}`:'<small class=ng>Non ha giocato</small>'}</div>`}
 function pitchHTML(ev,dg){const rows=rowsOf(ev.lineup.mod);let o=0;const offs=rows.map(r=>{const q=o;o+=r.length;return q});
 const pitch=rows.map((r,ri)=>ri).reverse().map(ri=>`<div class=pr>${rows[ri].map((lb,j)=>cell(ev,ev.lineup.slots[offs[ri]+j],lb,false,dg,offs[ri]+j)).join('')}</div>`).join('');
 const bn=(ev.lineup.bench||[]).filter(id=>pl(id));
@@ -184,10 +457,10 @@ function vFanta(){const evs=S.events.filter(x=>x.lineup?.slots.some(Boolean)).so
 const ev=evs.find(x=>x.id===fx)||evs[0];
 return`<select onchange="fx=this.value;R()">${evs.map(x=>`<option value=${x.id} ${x.id===ev.id?'selected':''}>${x.date.split('-').reverse().join('/')} · ${TYPES[x.type][0]} vs ${e(x.opp)}</option>`).join('')}</select><p style="font-size:12px;color:#667">Modulo ${ev.lineup.mod} · Bianco = voto base · Oro = Fantavoto</p>${pitchHTML(ev)}`}
 /* STATISTICHE */
-function vStat(){const A=S.players.map(p=>{const r={p,m:S.events.filter(ev=>{const q=mvpOf(ev);return q&&q.ids.includes(p.id)}).length,app:0,g:0,a:0,y:0,r:0,c:0,vb:[],vf:[]};S.events.forEach(ev=>{if(!played(ev,p.id))return;r.app++;const s=ev.stats?.[p.id]||{};r.g+=s.g||0;r.a+=s.a||0;r.y+=s.y||0;r.r+=s.r?1:0;if(isGK(ev,p.id))r.c+=s.conc||0;const f=fanta(ev,p.id);if(f!=null){r.vf.push(f);r.vb.push(parseFloat(s.vote))}});return r});
+function vStat(){const A=S.players.map(p=>{const r={p,m:S.events.filter(ev=>{const q=mvpOf(ev);return q&&q.ids.includes(p.id)}).length,app:0,min:0,g:0,a:0,y:0,r:0,c:0,vb:[],vf:[]};S.events.forEach(ev=>{if(!played(ev,p.id))return;r.app++;const s=ev.stats?.[p.id]||{};r.min+=s.min||0;r.g+=s.g||0;r.a+=s.a||0;r.y+=s.y||0;r.r+=s.r?1:0;if(isGK(ev,p.id))r.c+=s.conc||0;const f=fanta(ev,p.id);if(f!=null){r.vf.push(f);r.vb.push(parseFloat(s.vote))}});return r});
 if(!A.length)return msg('Nessun atleta in anagrafe.');const av=a=>a.length?a.reduce((x,y)=>x+y,0)/a.length:null;
 return['P','D','C','A',''].map(k=>{const L=A.filter(r=>(r.p.role||'')===k).sort((a,b)=>a.p.name.localeCompare(b.p.name));if(!L.length)return'';const gk=k==='P';
-return`<h4>${RP[k]||'Ruolo non assegnato'}</h4><div style="overflow:auto"><table><tr><th>Atleta</th><th>Pres</th><th>Gol</th><th>Ass</th><th>Amm</th><th>Esp</th>${gk?'<th>Subiti</th>':''}<th>MVP</th><th>M.Voto</th><th>M.Fanta</th></tr>${L.map(r=>`<tr><td>${e(r.p.name)}</td><td>${r.app}</td><td>${r.g}</td><td>${r.a}</td><td>${r.y}</td><td>${r.r}</td>${gk?`<td>${r.c}</td>`:''}<td>${r.m}</td><td>${fmt(av(r.vb))}</td><td>${fmt(av(r.vf))}</td></tr>`).join('')}</table></div>`}).join('')}
+return`<h4>${RP[k]||'Ruolo non assegnato'}</h4><div style="overflow:auto"><table><tr><th>Atleta</th><th>Pres</th><th>Min</th><th>Gol</th><th>Ass</th><th>Amm</th><th>Esp</th>${gk?'<th>Subiti</th>':''}<th>MVP</th><th>M.Voto</th><th>M.Fanta</th></tr>${L.map(r=>`<tr><td>${e(r.p.name)}</td><td>${r.app}</td><td>${r.min}</td><td>${r.g}</td><td>${r.a}</td><td>${r.y}</td><td>${r.r}</td>${gk?`<td>${r.c}</td>`:''}<td>${r.m}</td><td>${fmt(av(r.vb))}</td><td>${fmt(av(r.vf))}</td></tr>`).join('')}</table></div>`}).join('')}
 /* ANAGRAFE */
 let tmpPh='';
 function vAna(){return`<button class=b onclick="plF()">+ Nuovo atleta</button><div style="margin-top:10px">${[...S.players].sort((a,b)=>a.name.localeCompare(b.name)).map(p=>`<div class=card class=row style="display:flex;gap:10px;align-items:center">${p.photo?`<img src="${p.photo}" style="width:42px;height:42px;border-radius:50%;object-fit:cover">`:'<span style="font-size:30px">👤</span>'}<div style="flex:1"><b>${p.num?'#'+e(p.num)+' ':''}${e(p.name)}</b><br><small>${ROLES[p.role]||'Ruolo n.d.'} ${p.dob?'· '+p.dob.split('-').reverse().join('/'):e(p.year||'')}</small>${(()=>{const u=(S.users||[]).find(x=>x.pid===p.id&&x.role==='giocatore');return u?'<br><small>👤 Utente: <b>'+e(u.u)+'</b></small>':''})()}</div><button class="b g" onclick="plF('${p.id}')">✎</button><button class="b r" onclick="plD('${p.id}')">🗑</button></div>`).join('')||msg('Nessun atleta')}</div>`}
@@ -394,9 +667,9 @@ function trT(d){const i=tr.sel.indexOf(d);i<0?tr.sel.push(d):tr.sel.splice(i,1);
 function trM(n){tr.m+=n;if(tr.m<0){tr.m=11;tr.y--}if(tr.m>11){tr.m=0;tr.y++}R()}
 function trAdd(){if(!tr.sel.length)return alert('Seleziona almeno un giorno');const t=tr.t||'18:00';let n=0;tr.sel.forEach(d=>{if(!S.events.some(x=>x.type==='all'&&x.date===d&&x.time===t)){S.events.push({id:uid(),type:'all',date:d,time:t,opp:'',place:tr.p});n++}});tr.sel=[];save();R();alert(n+' allenamenti aggiunti al calendario')}
 function R(){pend=false;if(!me){$('#app').innerHTML=vAuth();return}
-const T=[['cal','📅','Calendario'],['avv','🔔','Avvisi / Comunicazioni'],['val','⭐',admin()?'Formazione':'Valutazioni'],['fanta','🏆','Fanta Michele'],['stat','📊','Statistiche'],['mvp','🥇','MVP'],['conv','📋','Convocazioni']];if(admin())T.push(['vot','📝','Valutazioni'],['trn','🏋️','Allenamenti'],['ana','👥','Anagrafe'],['usr','🔑','Utenti']);
-if(tab!=='home'&&!T.some(t=>t[0]===tab))tab='home';const views={cal:vCal,avv:vAvv,val:vVal,fanta:vFanta,stat:vStat,mvp:vMvp,conv:vConv,vot:vVot,trn:vTrn,ana:vAna,usr:vUsr},c=T.find(t=>t[0]===tab);
-$('#app').innerHTML=`<header><div class=hl>${tab!=='home'?'<button onclick="tab=\'home\';R()">‹ Home</button>':`<img src="${S.team.logo||'logo.png'}">`}</div><div class=ht><b>${e(S.team.name)}</b><small>v${V}${c?' · '+c[2]:''}</small></div><div class=hr><button class=bell onclick="tab='avv';R()">🔔${unread().length?`<b>${unread().length}</b>`:''}</button>${admin()?'<button onclick="vSet()">⚙️</button>':''}${me==='guest'?'<button class=gold onclick="out()">Accedi</button>':`<a class=av onclick="prof()">${avatar(34)}</a>`}</div></header>${nBar()}${bdBar()}${(setTimeout(bdCheck,300),'')}<main>${tab==='home'?`<div class=hm>${T.map(t=>`<button onclick="tab='${t[0]}';R()"><span>${t[1]}</span>${t[2]}</button>`).join('')}${isApp()?'':`<button class=ins onclick="inst()"><span>📲</span>Aggiungi alla schermata Home</button>`}</div>`:views[tab]()}</main>`}
+const T=[['cal','📅','Calendario'],['live','🔴','Live'],['avv','🔔','Avvisi / Comunicazioni'],['val','⭐',admin()?'Formazione':'Valutazioni'],['fanta','🏆','Fanta Michele'],['stat','📊','Statistiche'],['mvp','🥇','MVP'],['conv','📋','Convocazioni']];if(admin())T.push(['vot','📝','Valutazioni'],['trn','🏋️','Allenamenti'],['ana','👥','Anagrafe'],['usr','🔑','Utenti']);
+if(tab!=='home'&&!T.some(t=>t[0]===tab))tab='home';const views={cal:vCal,live:vLive,avv:vAvv,val:vVal,fanta:vFanta,stat:vStat,mvp:vMvp,conv:vConv,vot:vVot,trn:vTrn,ana:vAna,usr:vUsr},c=T.find(t=>t[0]===tab);
+$('#app').innerHTML=`<header><div class=hl>${tab!=='home'?'<button onclick="tab=\'home\';R()">‹ Home</button>':`<img src="${S.team.logo||'logo.png'}">`}</div><div class=ht><b>${e(S.team.name)}</b><small>v${V}${c?' · '+c[2]:''}</small></div><div class=hr><button class=bell onclick="tab='avv';R()">🔔${unread().length?`<b>${unread().length}</b>`:''}</button>${admin()?'<button onclick="vSet()">⚙️</button>':''}${me==='guest'?'<button class=gold onclick="out()">Accedi</button>':`<a class=av onclick="prof()">${avatar(34)}</a>`}</div></header>${nBar()}${bdBar()}${(setTimeout(bdCheck,300),'')}<main>${tab==='home'?`<div class=hm>${T.map(t=>t[0]==='live'?lvBtn(t):`<button onclick="tab='${t[0]}';R()"><span>${t[1]}</span>${t[2]}</button>`).join('')}${isApp()?'':`<button class=ins onclick="inst()"><span>📲</span>Aggiungi alla schermata Home</button>`}</div>`:views[tab]()}</main>`}
 /* FIREBASE */
 const CFG=typeof FIREBASE_CONFIG!=='undefined'?FIREBASE_CONFIG:typeof firebaseConfig!=='undefined'?firebaseConfig:null;
 const FB_ERR=typeof firebase==='undefined'?'Libreria Firebase non caricata: controlla la connessione internet':!CFG?'File firebase-config.js non trovato o con errori: controlla che sia nella stessa cartella di index.html, che la variabile si chiami FIREBASE_CONFIG e che non ci siano righe import':(!CFG.apiKey||String(CFG.apiKey).startsWith('INCOLLA'))?'firebase-config.js contiene ancora i valori INCOLLA_QUI (oppure la versione caricata su GitHub non è quella modificata)':'',FB_OK=!FB_ERR;
@@ -408,7 +681,7 @@ function fbInit(){if(!FB_OK)return;firebase.initializeApp(CFG);db=firebase.fires
 db.collection('meta').doc('team').onSnapshot(d=>{if(d.exists){S.team=d.data();L.team=JSON.stringify(S.team)}dirty()},er);
 for(const c of ['players','events'])db.collection(c).onSnapshot(sn=>{S[c]=sn.docs.map(d=>d.data());L[c]={};S[c].forEach(x=>L[c][x.id]=JSON.stringify(x));if(c==='events')autoAvg();dirty()},er);
 db.collection('claims').onSnapshot(sn=>{S.claims={};sn.docs.forEach(d=>S.claims[d.id]=d.data().uid);dirty()},er);
-db.collection('mvp').onSnapshot(sn=>{S.mvpv={};sn.docs.forEach(d=>{const o=d.data();(S.mvpv[o.eid]??={})[o.uid]=o.pid});S.mvpOk=true;dirty()},er);
+lvListen();db.collection('mvp').onSnapshot(sn=>{S.mvpv={};sn.docs.forEach(d=>{const o=d.data();(S.mvpv[o.eid]??={})[o.uid]=o.pid});S.mvpOk=true;dirty()},er);
 db.collection('notices').onSnapshot(sn=>{S.nErr='';S.notices=sn.docs.map(d=>d.data()).sort((a,b)=>b.date.localeCompare(a.date));dirty()},x=>{S.nErr=x.message;dirty()});
 auth.onAuthStateChanged(async u=>{un.forEach(f=>f());un=[];if(!u){me=localStorage.getItem('osm_guest')?'guest':'';localStorage.removeItem('osm_last');myPh='';myRole='';myPid='';myOk=false;S.rd={};S.rdAll={};S.rdOk=false;localStorage.removeItem('osm_ph');S.votes={};S.users=[];mvpChecked=false;return R()}
 const A=u.email==='admin@osm.local';let d=null;try{d=await db.collection('users').doc(u.uid).get()}catch(x){}if(!A&&!regInfo&&!regName&&d&&!d.exists){auth.signOut();alert('Questo account è stato eliminato. Registrati di nuovo per usare l\'app.');return}

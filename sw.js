@@ -1,4 +1,4 @@
-// Service worker v1.11: apre subito la versione salvata e controlla gli aggiornamenti in background.
+// Service worker v1.23: apre subito la versione salvata e controlla gli aggiornamenti in background.
 // Il banner "Nuova versione" compare confrontando version.json (mai in cache) con la versione in uso.
 const C='osm';
 self.addEventListener('install',e=>{self.skipWaiting()});
